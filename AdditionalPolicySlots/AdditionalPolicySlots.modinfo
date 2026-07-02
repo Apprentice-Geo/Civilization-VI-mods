@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mod id="c368641c-9dc1-4522-8338-0a57fae9fe46" version="3">
+  <Properties>
+    <Name>Additional Policy Slots（额外政策槽位）</Name>
+    <Description>
+    拥有“军事传统”市政 - 加一军事政策槽位。
+    拥有“对外贸易”市政 - 加一经济政策槽位。
+    拥有“政治哲学”市政 - 加一外交政策槽位。
+    拥有“神秘主义”市政 - 加一通配符政策槽位。
+    该效果不会影响 AI 玩家。
+    Having the "Military Tradition" civic - +1 Military Policy Slot.
+    Having the "Foreign Trade" civic - +1 Economic Policy Slot.
+    Having the "Political Philosophy" civic - +1 Diplomatic Policy Slot.
+    Having the "Mysticism" civic - +1 Wildcard Policy Slot.
+    AI players are not affected.
+    </Description>
+    <Created>1772381887</Created>
+    <Teaser>
+    为人类玩家提供额外政策槽位。
+    Provides additional policy slots for human players.
+    </Teaser>
+    <Authors>ApprenTice</Authors>
+    <AffectsSavedGames>0</AffectsSavedGames>
+    <CompatibleVersions>1.2,2.0</CompatibleVersions>
+  </Properties>
+  <InGameActions>
+    <UpdateDatabase id="AdditionalPolicySlots">
+      <File>AdditionalPolicySlots.sql</File>
+    </UpdateDatabase>
+  </InGameActions>
+  <Files>
+    <File>AdditionalPolicySlots.sql</File>
+  </Files>
+</Mod>
