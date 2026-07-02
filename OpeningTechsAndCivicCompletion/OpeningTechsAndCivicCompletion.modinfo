@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mod id="1280d385-0dfa-4bf8-8850-6c331a7fa954" version="1">
+  <Properties>
+    <Name>Opening Techs and Civic Completion（开局科技与市政完成）</Name>
+    <Description>
+    远古时代开局时，人类主要玩家建立第一座城市后，立即完成以下开局科技与市政。
+    科技：制陶术、畜牧业、采矿、航海术、占星术。
+    市政：法典。
+    该效果只会触发一次，不会影响 AI 玩家。
+    非远古时代开局时，该效果不会触发。
+
+    In Ancient Era starts, after a human major player founds their first city, the following opening technologies and civic are immediately completed.
+    Technologies: Pottery, Animal Husbandry, Mining, Sailing, Astrology.
+    Civic: Code of Laws.
+    This effect triggers only once and does not affect AI players.
+    This effect does not trigger in non-Ancient Era starts.
+    </Description>
+    <Created>1782979771</Created>
+    <Teaser>
+    远古时代开局时，人类玩家建立首城后立即完成开局科技与法典市政。
+    In Ancient Era starts, completes opening technologies and Code of Laws after a human player founds their first city.
+    </Teaser>
+    <Authors>ApprenTice</Authors>
+    <AffectsSavedGames>0</AffectsSavedGames>
+    <CompatibleVersions>1.2,2.0</CompatibleVersions>
+  </Properties>
+
+  <InGameActions>
+    <AddGameplayScripts id="OpeningTechsAndCivicCompletion">
+      <File>OpeningTechsAndCivicCompletion.lua</File>
+    </AddGameplayScripts>
+  </InGameActions>
+
+  <Files>
+    <File>OpeningTechsAndCivicCompletion.lua</File>
+  </Files>
+</Mod>

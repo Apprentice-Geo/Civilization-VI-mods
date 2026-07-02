@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mod id="24ed2910-1f00-4bd7-827b-36d54b86b977" version="1">
+  <Properties>
+    <Name>Movement Enhance（人类单位移动力增强）</Name>
+    <Description>
+    本 Mod 为人类玩家提供全局单位移动力加成。
+    启用后，所有由人类玩家控制的单位将额外获得 1 点移动力。该效果不会影响 AI 玩家。
+    This mod grants a global movement bonus to all units controlled by human players. 
+    Once enabled, every unit owned by a human player receives 1 Movement. AI players are not affected.
+    </Description>
+    <Created>1772041587</Created>
+    <Teaser>
+    所有由人类玩家控制的单位将额外获得 1 点移动力。
+    Every unit owned by a human player receives 1 Movement.
+    </Teaser>
+    <Authors>ApprenTice</Authors>
+    <AffectsSavedGames>0</AffectsSavedGames>
+    <CompatibleVersions>1.2,2.0</CompatibleVersions>
+  </Properties>
+  <InGameActions>
+    <UpdateDatabase id="MovementEnhance">
+      <File>MovementEnhance.sql</File>
+    </UpdateDatabase>
+  </InGameActions>
+  <Files>
+    <File>MovementEnhance.sql</File>
+  </Files>
+</Mod>

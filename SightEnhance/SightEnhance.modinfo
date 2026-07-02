@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mod id="9c8cacdd-688f-48e3-8c4b-86481f8cde29" version="1">
+  <Properties>
+    <Name>Sight Enhance（人类单位视野增强）</Name>
+    <Description>
+    本 Mod 为人类玩家单位提供全局视野范围加成。
+    所有由人类玩家控制的单位将额外获得 1 点视野。
+    可与若昂三世的关闸叠加。
+    该效果不会影响 AI 玩家。
+    This mod provides a global sight range bonus to human player units.
+    All units controlled by human players will gain an additional 1 point of vision.
+    Stacking with João III's Porta do Cerco.
+    This effect does not affect AI players.
+    </Description>
+    <Created>1772742318</Created>
+    <Teaser>
+    所有人类单位将额外获得 1 点视野范围。
+    All human units will gain an additional 1 point of sight range.
+    </Teaser>
+    <Authors>ApprenTice</Authors>
+    <AffectsSavedGames>0</AffectsSavedGames>
+    <CompatibleVersions>1.2,2.0</CompatibleVersions>
+  </Properties>
+  <InGameActions>
+    <UpdateDatabase id="SightEnhance">
+      <File>SightEnhance.sql</File>
+    </UpdateDatabase>
+  </InGameActions>
+  <Files>
+    <File>SightEnhance.sql</File>
+  </Files>
+</Mod>

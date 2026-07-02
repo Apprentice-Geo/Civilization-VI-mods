@@ -1,0 +1,11 @@
+* text=auto eol=lf
+
+*.md text eol=lf
+*.txt text eol=lf
+*.modinfo text eol=lf
+*.sql text eol=lf
+*.lua text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+
+*.png binary -eol
