@@ -2,9 +2,9 @@
 
 ## Repository Introduction
 
-This repository collects the [Civilization VI](https://civilization.2k.com/civ-vi/) mods I implemented and their cover images. These mods can be downloaded from Steam Workshop, or you can clone this repository and place the mod folders you need into the corresponding Civilization VI mod folder.
+This repository collects the [Civilization VI](https://civilization.2k.com/civ-vi/) mods I implemented. These mods can be downloaded from [Steam Workshop](https://steamcommunity.com/app/289070/workshop/), or you can clone this repository and place the mod folders you need into the corresponding Civilization VI mod folder.
 
-## Mod Descriptions and Covers
+## Mod Descriptions
 
 ### Additional Policy Slots
 

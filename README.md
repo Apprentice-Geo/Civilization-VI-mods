@@ -6,9 +6,9 @@
 
 ## 仓库介绍
 
-该仓库收集我实现的 [文明 VI](https://civilization.2k.com/civ-vi/) mod 及其封面。这些 mod 可在 Steam 创意工坊下载，也可自行 clone 本仓库后，将需要的 mod 文件夹放置到对应的《文明 VI》mod 文件夹下使用。
+该仓库收集我实现的 [文明 VI](https://civilization.2k.com/civ-vi/) mod。这些 mod 可在 [Steam 创意工坊](https://steamcommunity.com/app/289070/workshop/)下载，也可自行 clone 本仓库后，将需要的 mod 文件夹放到对应的《文明 VI》mod 文件夹下使用。
 
-## 各 mod 介绍及其封面
+## 各 mod 介绍
 
 ### 额外政策槽位
 
