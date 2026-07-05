@@ -43,7 +43,7 @@ This mod grants a global movement bonus to all units controlled by human players
 
 Folder: `OpeningTechsAndCivicCompletion`
 
-In Ancient Era starts, after a human major player founds their first city, the following opening technologies and civic are immediately completed:
+In Ancient Era starts, when a human major player's first turn starts after entering the game, the following opening technologies and civic are immediately completed:
 
 - Technologies: Pottery, Animal Husbandry, Mining, Sailing, Astrology.
 - Civic: Code of Laws.

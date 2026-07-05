@@ -87,7 +87,7 @@ local function CompleteCivics(player)
     end
 end
 
-local function OnCityBuilt(playerID, cityID, x, y)
+local function OnPlayerTurnStarted(playerID)
     if not IsAncientEraStart() then
         return
     end
@@ -110,11 +110,6 @@ local function OnCityBuilt(playerID, cityID, x, y)
         return
     end
 
-    -- CityBuilt fires after the city exists, so the first founded city should make the count 1.
-    if player:GetCities():GetCount() ~= 1 then
-        return
-    end
-
     CompleteTechs(player)
     CompleteCivics(player)
 
@@ -123,6 +118,6 @@ local function OnCityBuilt(playerID, cityID, x, y)
     Log("Completed opening techs and civic for player " .. tostring(playerID))
 end
 
-GameEvents.CityBuilt.Add(OnCityBuilt)
+GameEvents.PlayerTurnStarted.Add(OnPlayerTurnStarted)
 
 Log("Loaded.")
