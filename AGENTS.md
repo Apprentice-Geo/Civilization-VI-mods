@@ -35,3 +35,14 @@
 ## 参考资料
 
 - Civilization VI Modding Knowledge Base: https://sukritact.github.io/Civilization-VI-Modding-Knowledge-Base/
+- Civilization VI Wiki : https://civilization.fandom.com/wiki/Civilization_VI
+- 本地游戏资源目录，作为只读参考，禁止修改，相对于 steam 的路径一般为 `steam\steamapps\common\Sid Meier's Civilization VI`
+- 本地游戏运行信息，其中包含 log，路径一般为 `~\AppData\Local\Firaxis Games\Sid Meier's Civilization VI`
+
+## 提交信息
+
+需要写 commit message 时使用 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)，例如：
+
+```text
+docs: update project agent instructions
+```
