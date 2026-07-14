@@ -4,6 +4,8 @@
 
 This repository collects the [Civilization VI](https://civilization.2k.com/civ-vi/) mods I implemented. These mods can be downloaded from [Steam Workshop](https://steamcommunity.com/app/289070/workshop/), or you can clone this repository and place the mod folders you need into the corresponding Civilization VI mod folder.
 
+The local mod folder is usually located at `~\Documents\My Games\Sid Meier's Civilization VI\Mods`.
+
 ## Mod Descriptions
 
 ### Additional Policy Slots
@@ -49,6 +51,22 @@ In Ancient Era starts, when a human major player's first turn starts after enter
 - Civic: Code of Laws.
 
 This effect triggers only once and does not affect AI players. This effect does not trigger in non-Ancient Era starts.
+
+### People's War
+
+![People's War cover](covers/PeoplesWar.png)
+
+Folder: `PeoplesWar`
+
+Under the Gathering Storm ruleset, this mod grants the following effects to human major players:
+
+- Normal and religious combat strength increase with total empire population: +1 at 1–10 population, +2 at 11–20, and so on, capped at +100.
+- Each city gains ranged strike strength, city defense strength, and counter-spy levels from its own population: +1 at 1–10 population, +2 at 11–20, and so on; the bonus is capped at +10 once the city reaches 91 population.
+- Each city gains +2 Gold, +0.5 Production, +1 Faith, +0.5 Science, and +0.5 Culture per population.
+- Conquered cities lose no population.
+- Newly conquered or loyalty-joined cities may choose "Dissolve": "Dissolve this city and redistribute its entire population among your other retained cities. Any remainder is assigned one population each to the least-populous eligible cities."
+
+AI players do not receive these effects.
 
 ### Raze Original Capital
 
