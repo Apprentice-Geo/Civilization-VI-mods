@@ -4,7 +4,7 @@
 
 - 每个 Civilization VI mod 独立放在自己的目录中，通常包含一个 `.modinfo` 文件，以及对应的 `.sql` 或 `.lua` 实现文件。
 - `covers/` 只存放 README 和发布页面使用的封面图。
-- `README.md` 和 `README.en.md` 是面向用户的总览文档；修改 mod 后需要同步新 mod 行为到两个 `README` 文档中。
+- `README.md` 和 `README.en.md` 是面向用户的总览文档，发布 mod 前需要同步新 mod 行为到两个 `README` 文档中。
 
 ## 修改原则
 
@@ -36,7 +36,7 @@
 
 - Civilization VI Modding Knowledge Base: https://sukritact.github.io/Civilization-VI-Modding-Knowledge-Base/
 - Civilization VI Wiki : https://civilization.fandom.com/wiki/Civilization_VI
-- 本地游戏资源目录，作为只读参考，禁止修改，相对于 steam 的路径一般为 `steam\steamapps\common\Sid Meier's Civilization VI`
+- 本地游戏资源目录，禁止修改，相对于 steam 的路径一般为 `steam\steamapps\common\Sid Meier's Civilization VI`
 - 本地游戏运行信息，其中包含 log，路径一般为 `~\AppData\Local\Firaxis Games\Sid Meier's Civilization VI`
 
 ## 提交信息
