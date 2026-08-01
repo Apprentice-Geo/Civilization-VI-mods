@@ -62,11 +62,20 @@ Under the Gathering Storm ruleset, this mod grants the following effects to huma
 
 - Normal and religious combat strength increase with total empire population: +1 at 1–10 population, +2 at 11–20, and so on, capped at +100.
 - Each city gains ranged strike strength, city defense strength, and counter-spy levels from its own population: +1 at 1–10 population, +2 at 11–20, and so on; the bonus is capped at +10 once the city reaches 91 population.
-- Each city gains +2 Gold, +0.5 Production, +1 Faith, +0.5 Science, and +0.5 Culture per population.
 - Conquered cities lose no population.
 - Newly conquered or loyalty-joined cities may choose "Dissolve": "Dissolve this city and redistribute its entire population among your other retained cities. Any remainder is assigned one population each to the least-populous eligible cities."
 
 AI players do not receive these effects.
+
+### Population Yields
+
+![人口产出](covers/PopulationYields.png)
+
+Folder: `PopulationYields`
+
+Under the Rise and Fall and Gathering Storm rulesets, each city gains +2 Gold, +0.5 Production, +1 Faith, +0.5 Science, and +0.5 Culture per population.
+
+This effect applies only to human major players. AI players do not receive these effects.
 
 ### Raze Original Capital
 
