@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="7e6dfc8c-a7a4-4d1b-a96e-df7a24d70445" version="3.0">
+<Mod id="7e6dfc8c-a7a4-4d1b-a96e-df7a24d70445" version="4.0">
   <Properties>
     <Name>People's War（人民战争）</Name>
     <Description>
     仅限风云变幻。人类主要玩家从1人口起，每10点帝国总人口获得+1普通与宗教战斗力，最高+100。
     每座城市从1人口起、每增加10人口获得+1远程攻击、防御与反间谍等级，最高+10。
-    每人口为城市提供+2金币、+0.5生产力、+1信仰、+0.5科技和+0.5文化。
     征服城市人口不会损失；征服或因忠诚度归附的城市均可解放，并将其人口分配给其他已确定保留的城市。
     Gathering Storm only. Starting at 1 population, human major players gain +1 normal and religious combat strength per 10 total population, capped at +100.
     Starting at 1 population, each city gains +1 ranged strike, defense, and counter-spy level per 10 population, capped at +10.
-    Each population provides +2 Gold, +0.5 Production, +1 Faith, +0.5 Science, and +0.5 Culture for city.
     Conquered cities lose no population. Conquered or loyalty-joined cities may be dissolved to redistribute their population among other retained cities.
     </Description>
     <Teaser>
-    基于人口数量，强化单位与城市、增加城市产出，可解放征服或忠诚归附的城市。
-    Strengthen units and cities based on population, increase city yields, and dissolve conquered or loyalty-joined cities.
+    基于人口数量强化单位与城市，可解放征服或忠诚归附的城市。
+    Strengthen units and cities based on population, and dissolve conquered or loyalty-joined cities.
     </Teaser>
     <Authors>ApprenTice</Authors>
     <Created>1783958400</Created>

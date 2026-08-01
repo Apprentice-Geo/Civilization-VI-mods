@@ -195,10 +195,6 @@ local function AttachPlayerModifiers(player)
             player:AttachModifierByID("PEOPLES_WAR_CITY_SPY_DEFENSE_POP_" .. suffix)
         end
 
-        for _, yieldType in ipairs({ "GOLD", "PRODUCTION", "FAITH", "SCIENCE", "CULTURE" }) do
-            player:AttachModifierByID("PEOPLES_WAR_CITY_POPULATION_" .. yieldType)
-        end
-
         player:SetProperty(PROPERTY_CITY_MODIFIERS_ATTACHED, 1)
     end
 end

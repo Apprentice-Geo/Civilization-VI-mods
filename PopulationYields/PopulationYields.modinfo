@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mod id="ac3cc9c7-c63f-4551-99a1-5379bcdf0c20" version="1.0">
+  <Properties>
+    <Name>Population Yields（人口产出）</Name>
+    <Description>
+    仅限迭起兴衰和风云变幻。人类主要玩家的每座城市每人口额外提供+2金币、+0.5生产力、+1信仰、+0.5科技和+0.5文化。
+    Rise and Fall and Gathering Storm only. Each city of a human major player gains +2 Gold, +0.5 Production, +1 Faith, +0.5 Science, and +0.5 Culture per population.
+    </Description>
+    <Teaser>
+    人类主要玩家的城市获得额外的每人口产出。
+    Cities of human major players gain additional yields per population.
+    </Teaser>
+    <Authors>ApprenTice</Authors>
+    <Created>1785592148</Created>
+    <AffectsSavedGames>1</AffectsSavedGames>
+    <CompatibleVersions>2.0</CompatibleVersions>
+  </Properties>
+
+  <ActionCriteria>
+    <Criteria id="PopulationYields_Expansions">
+      <RuleSetInUse>RULESET_EXPANSION_1,RULESET_EXPANSION_2</RuleSetInUse>
+    </Criteria>
+  </ActionCriteria>
+
+  <InGameActions>
+    <UpdateDatabase id="PopulationYields_Database" criteria="PopulationYields_Expansions">
+      <File>PopulationYields.sql</File>
+    </UpdateDatabase>
+  </InGameActions>
+
+  <Files>
+    <File>PopulationYields.sql</File>
+  </Files>
+</Mod>
