@@ -8,7 +8,7 @@
 
 该仓库收集我实现的 [文明 VI](https://civilization.2k.com/civ-vi/) mod。这些 mod 可在 [Steam 创意工坊](https://steamcommunity.com/app/289070/workshop/)下载，也可自行 clone 本仓库后，将需要的 mod 文件夹放到对应的《文明 VI》mod 文件夹下使用。
 
-本地 mod 文件夹一般为 `~\Documents\My Games\Sid Meier's Civilization VI\Mods` 。
+本地 mod 文件夹一般为 `%USERNAME%\Documents\My Games\Sid Meier's Civilization VI\Mods` 。
 
 ## 各 mod 介绍
 
