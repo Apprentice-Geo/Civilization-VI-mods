@@ -4,7 +4,7 @@
 
 This repository collects the [Civilization VI](https://civilization.2k.com/civ-vi/) mods I implemented. These mods can be downloaded from [Steam Workshop](https://steamcommunity.com/app/289070/workshop/), or you can clone this repository and place the mod folders you need into the corresponding Civilization VI mod folder.
 
-The local mod folder is usually located at `~\Documents\My Games\Sid Meier's Civilization VI\Mods`.
+The local mod folder is usually located at `%USERNAME%\Documents\My Games\Sid Meier's Civilization VI\Mods`.
 
 ## Mod Descriptions
 

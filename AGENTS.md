@@ -1,10 +1,64 @@
-# 仓库协作规则
+# AGENTS.md
 
 ## 仓库结构
 
 - 每个 Civilization VI mod 独立放在自己的目录中，通常包含一个 `.modinfo` 文件，以及对应的 `.sql` 或 `.lua` 实现文件。
 - `covers/` 只存放 README 和发布页面使用的封面图。
 - `README.md` 和 `README.en.md` 是面向用户的总览文档，发布 mod 前需要同步新 mod 行为到两个 `README` 文档中。
+
+## modinfo 字段说明
+
+`.modinfo` 是 XML 格式的 mod 入口声明。常见根节点和元数据字段如下：
+
+| 字段 | 常见取值 | 说明 |
+| --- | --- | --- |
+| `<Mod id="..." version="...">` | `id` 通常为 UUID；`version` 为整数或小数 | `id` 必须在不同 mod 间保持唯一；行为更新时递增 `version`。 |
+| `<Name>` | 文本或本地化键 | mod 名称。 |
+| `<Description>` | 文本或本地化键 | 完整功能说明。 |
+| `<Teaser>` | 文本或本地化键 | 在附加内容界面显示的简短摘要。 |
+| `<Authors>` | 文本 | 作者名称。 |
+| `<Created>` | Unix 时间戳（秒） | mod 的创建时间。 |
+| `<AffectsSavedGames>` | `0`：不标记为存档依赖；`1`：标记为存档依赖 | 表示存档是否需要记录并依赖该 mod；设为 `0` 不代表运行中的存档一定可以安全增删该 mod。 |
+| `<CompatibleVersions>` | `1.2`、`2.0` 或 `1.2,2.0` | 声明兼容的 Civ VI mod 系统版本；`1.2` 常用于较早版本，`2.0` 用于风云变幻更新后的版本。该字段不用于限制规则集。 |
+| `<EnabledByDefault>` | `0`：默认禁用；`1`：默认启用 | mod 首次被发现时的默认启用状态。 |
+| `<SupportsSinglePlayer>` | `0`：不支持；`1`：支持 | 是否支持单人游戏。 |
+| `<SupportsMultiplayer>` | `0`：不支持；`1`：支持 | 是否支持多人游戏。 |
+| `<SupportsHotSeat>` | `0`：不支持；`1`：支持 | 是否支持热座模式。 |
+
+常见顶层结构如下：
+
+| 结构 | 说明 |
+| --- | --- |
+| `<Files>` | 列出随 mod 打包的全部文件；仅列在这里不会使文件自动加载。 |
+| `<InGameActions>` | 声明进入游戏后执行的 gameplay、文本和 UI 动作。 |
+| `<FrontEndActions>` | 声明在主菜单和游戏设置等前端环境执行的动作。 |
+| `<ActionCriteria>` | 定义动作的执行条件；动作通过 `criteria` 属性引用 `<Criteria id="...">`。 |
+| `<Dependencies>` | 声明必须存在并启用的其他 mod，同时使当前 mod 的同加载顺序动作排在依赖项之后。 |
+| `<References>` | 当被引用 mod 同时启用时建立加载顺序，但不强制其存在或启用。 |
+
+`ActionCriteria` 中常用的条件字段如下：
+
+| 字段 | 常见取值 | 说明 |
+| --- | --- | --- |
+| `<RuleSetInUse>` | `RULESET_STANDARD`、`RULESET_EXPANSION_1`、`RULESET_EXPANSION_2` | 分别表示标准规则、迭起兴衰和风云变幻；多个允许值使用逗号分隔。 |
+| `<ModInUse>` | mod 的 `id` | 仅在指定 mod 已启用时满足条件。 |
+
+`InGameActions` 和 `FrontEndActions` 中常见的动作如下：
+
+| 动作 | 说明 |
+| --- | --- |
+| `<UpdateDatabase>` | 将 SQL 或 XML 文件应用到当前环境的数据库。 |
+| `<UpdateText>` | 将本地化 SQL 或 XML 文件应用到文本数据库。 |
+| `<AddGameplayScripts>` | 在 gameplay Lua 环境加载脚本。 |
+| `<AddUserInterfaces>` | 注册新的 UI Context，通常需要在动作属性中指定 `<Context>`。 |
+| `<ReplaceUIScript>` | 使用 `<LuaContext>` 指定目标 UI Context，并通过 `<LuaReplace>` 指定替换脚本。 |
+| `<ImportFiles>` | 导入 Lua 或 UI 运行时需要直接访问的文件。 |
+| `<UpdateIcons>`、`<UpdateColors>`、`<UpdateArt>` | 分别加载图标、颜色和美术资源数据。 |
+
+- 每个动作的 `id` 应在 mod 内唯一；`criteria` 必须引用已定义的条件。
+- `<File>` 使用相对于 mod 根目录的路径。需要发布的文件必须列入 `<Files>`，并放入负责加载它的动作中。
+- 动作的 `<Properties><LoadOrder>` 默认为 `0`。仅在确有覆盖或依赖顺序时设置；数值越大越晚执行，优先使用依赖或引用表达跨 mod 顺序。
+- 规则集限制使用 `ActionCriteria` / `RuleSetInUse`，不要用 `CompatibleVersions` 代替。
 
 ## 修改原则
 
@@ -37,7 +91,7 @@
 - Civilization VI Modding Knowledge Base: https://sukritact.github.io/Civilization-VI-Modding-Knowledge-Base/
 - Civilization VI Wiki : https://civilization.fandom.com/wiki/Civilization_VI
 - 本地游戏资源目录，禁止修改，相对于 steam 的路径一般为 `steam\steamapps\common\Sid Meier's Civilization VI`
-- 本地游戏运行信息，其中包含 log，路径一般为 `~\AppData\Local\Firaxis Games\Sid Meier's Civilization VI`
+- 本地游戏运行信息，其中包含 log，路径一般为 `%USERNAME%\AppData\Local\Firaxis Games\Sid Meier's Civilization VI`
 
 ## 提交信息
 
