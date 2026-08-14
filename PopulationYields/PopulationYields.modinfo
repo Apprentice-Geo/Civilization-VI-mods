@@ -13,6 +13,8 @@
     <Authors>ApprenTice</Authors>
     <Created>1785592148</Created>
     <AffectsSavedGames>1</AffectsSavedGames>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <SupportsHotSeat>1</SupportsHotSeat>
     <CompatibleVersions>2.0</CompatibleVersions>
   </Properties>
 
