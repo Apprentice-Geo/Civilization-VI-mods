@@ -23,7 +23,7 @@
     <AffectsSavedGames>1</AffectsSavedGames>
     <SupportsMultiplayer>1</SupportsMultiplayer>
     <SupportsHotSeat>1</SupportsHotSeat>
-    <CompatibleVersions>1.2,2.0</CompatibleVersions>
+    <CompatibleVersions>2.0</CompatibleVersions>
   </Properties>
   <InGameActions>
     <UpdateDatabase id="AdditionalPolicySlots">
