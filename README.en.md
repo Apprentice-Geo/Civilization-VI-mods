@@ -31,6 +31,17 @@ Folder: `BarbarianWard`
 
 Human combat units gain a 99 advantage when combating barbarian units.
 
+### Great Synthesizer
+
+![Great Synthesizer cover](covers/GreatSynthesizer.png)
+
+Folder: `GreatSynthesizer`
+
+Under the Gathering Storm ruleset, all leaders of the same major civilization share the non-internal leader traits of the other leaders of that civilization.
+
+- Leaders added to the Gameplay DB by enabled DLC and community mods are included.
+- The Leader Pool exclusions are not read.
+
 ### Movement Enhance
 
 ![Movement Enhance cover](covers/MovementEnhance.png)
