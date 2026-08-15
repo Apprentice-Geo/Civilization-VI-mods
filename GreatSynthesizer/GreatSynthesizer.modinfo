@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mod id="f0e8a17b-1a27-4a4f-b5d7-8b9d30cc8e2a" version="1.0">
+  <Properties>
+    <Name>Great Synthesizer（集大成者）</Name>
+    <Description>
+    仅限风云变幻。
+    同一主要文明的所有领袖共享该文明其他领袖的非内部领袖能力。
+    当前启用的 DLC 和社区 Mod 中已写入 Gameplay DB 的领袖均会参与。
+    本 Mod 不读取 Leader Pool 排除设置。
+    Gathering Storm only.
+    All leaders of the same major civilization share the non-internal leader traits of the other leaders of that civilization.
+    Leaders added to the Gameplay DB by enabled DLC and community mods are included.
+    The Leader Pool exclusions are not read.
+    </Description>
+    <Teaser>
+    同一主要文明的所有领袖共享非内部领袖能力。
+    All leaders of the same major civilization share non-internal leader traits.
+    </Teaser>
+    <Authors>ApprenTice</Authors>
+    <Created>1786809600</Created>
+    <AffectsSavedGames>1</AffectsSavedGames>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <SupportsHotSeat>1</SupportsHotSeat>
+    <CompatibleVersions>2.0</CompatibleVersions>
+  </Properties>
+
+  <ActionCriteria>
+    <Criteria id="GreatSynthesizer_GatheringStorm">
+      <RuleSetInUse>RULESET_EXPANSION_2</RuleSetInUse>
+    </Criteria>
+  </ActionCriteria>
+
+  <InGameActions>
+    <UpdateDatabase id="GreatSynthesizer_Database" criteria="GreatSynthesizer_GatheringStorm">
+      <!-- 必须晚于官方 DLC 的领袖数据加载，否则会提前写入 LeaderTraits，导致原生领袖数据插入时唯一键冲突。 -->
+      <Properties>
+        <LoadOrder>1000000</LoadOrder>
+      </Properties>
+      <File>GreatSynthesizer_Gameplay.sql</File>
+      <File>GreatSynthesizer_Compatibility.sql</File>
+    </UpdateDatabase>
+  </InGameActions>
+
+  <Files>
+    <File>GreatSynthesizer_Gameplay.sql</File>
+    <File>GreatSynthesizer_Compatibility.sql</File>
+  </Files>
+</Mod>

@@ -35,6 +35,17 @@
 
 人类战斗单位与蛮族单位战斗时获得 99 战斗力增益。
 
+### 集大成者
+
+![集大成者封面](covers/GreatSynthesizer.png)
+
+对应文件夹：`GreatSynthesizer`
+
+仅在“风云变幻”规则集下，同一主要文明的所有领袖共享该文明其他领袖的非内部领袖能力。
+
+- 当前启用的 DLC 和社区 Mod 中已写入 Gameplay DB 的领袖也会参与。
+- 本 Mod 不读取 Leader Pool 排除设置。
+
 ### 人类单位移动力增强
 
 ![人类单位移动力增强封面](covers/MovementEnhance.png)
