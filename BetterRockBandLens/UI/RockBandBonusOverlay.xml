@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Layer="WorldAnchor">
+
+  <Container ID="RockBandBonusContainer" />
+
+  <Instance Name="RockBandBonusInstance">
+    <WorldAnchor ID="Anchor" Hidden="1">
+      <Label
+        ID="BonusLabel"
+        Anchor="C,T"
+        Offset="0,-34"
+        Size="84,52"
+        Style="FontFlair28"
+        FontStyle="Stroke"
+        Color0="150,220,145,255"
+        Color1="0,0,0,230"
+        Align="Center"
+        String="+0"
+      />
+    </WorldAnchor>
+  </Instance>
+
+</Context>

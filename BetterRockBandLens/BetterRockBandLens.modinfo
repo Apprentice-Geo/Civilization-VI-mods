@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mod id="23cb221e-9471-4b86-a58d-cb85d2cc830b" version="2">
+  <Properties>
+    <Name>更好的摇滚乐队滤镜/Better Rock Band Lens</Name>
+    <Description>
+    当选中一支摇滚乐队时，
+    会根据此乐队的技能展示其在区域中获得的表演等级提升数值。
+    When a rock band is selected,
+    the increase in performance rank gained in the area is displayed based on the band's skills.
+    </Description>
+    <Created>1786795668</Created>
+    <Teaser>
+    更好的摇滚乐队滤镜
+    Better Rock Band Lens
+    </Teaser>
+    <Authors>BAZINGA1990, ApprenTice</Authors>
+    <AffectsSavedGames>1</AffectsSavedGames>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <SupportsHotSeat>1</SupportsHotSeat>
+    <CompatibleVersions>2.0</CompatibleVersions>
+  </Properties>
+  <!-- 依赖风云变幻（Expansion2）：摇滚乐队 UNIT_ROCK_BAND 及其促销/表演等级机制 -->
+  <Dependencies>
+    <Mod id="4873eb62-8ccc-4574-b784-dda455e74e68"/>
+  </Dependencies>
+  <InGameActions>
+    <!-- 注册独立 WorldAnchor UI Context；同名 RockBandBonusOverlay.lua 会随 XML Context 加载 -->
+    <AddUserInterfaces id="RockBandBonusOverlay_IG">
+      <Properties>
+        <Context>InGame</Context>
+        <LoadOrder>30000</LoadOrder>
+      </Properties>
+      <File>UI/RockBandBonusOverlay.xml</File>
+    </AddUserInterfaces>
+
+    <ReplaceUIScript id="RockBandLevelLens_SelectedUnit_IG">
+      <Properties>
+        <LoadOrder>30000</LoadOrder>
+        <LuaContext>SelectedUnit</LuaContext>
+        <LuaReplace>UI/SelectedUnit_Expansion2.lua</LuaReplace>
+      </Properties>
+    </ReplaceUIScript>
+  </InGameActions>
+  <Files>
+    <File>UI/SelectedUnit_Expansion2.lua</File>
+    <File>UI/RockBandBonusOverlay.xml</File>
+    <File>UI/RockBandBonusOverlay.lua</File>
+  </Files>
+</Mod>

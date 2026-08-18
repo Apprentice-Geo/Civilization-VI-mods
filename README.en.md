@@ -104,6 +104,16 @@ Folder: `SightEnhance`
 
 This mod provides a global sight range bonus to human player units. All units controlled by human players will gain an additional 1 point of vision. It can stack with João III's Porta do Cerco. This effect does not affect AI players.
 
+### Better Rock Band Lens
+
+![Better Rock Band Lens cover](covers/BetterRockBandLens.png)
+
+Corresponding folder: `BetterRockBandLens`
+
+Co-developed with Steam user [BAZINGA1990](https://steamcommunity.com/profiles/76561198144612613/).
+
+When a rock band is selected, the increase in performance level gained in the region is displayed based on that band's skills.
+
 ## License
 
 This repository is licensed under the [Apache License 2.0](LICENSE.txt).
