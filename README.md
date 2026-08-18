@@ -108,6 +108,16 @@
 
 本 mod 为人类玩家单位提供全局视野范围加成。所有由人类玩家控制的单位将额外获得 1 点视野。可与若昂三世的关闸叠加。该效果不会影响 AI 玩家。
 
+### 更好的摇滚乐队滤镜
+
+![更好的摇滚乐队滤镜封面](covers/BetterRockBandLens.png)
+
+对应文件夹：`BetterRockBandLens`
+
+由 Steam 用户 [BAZINGA1990](https://steamcommunity.com/profiles/76561198144612613/) 与我共同开发。
+
+当选中一支摇滚乐队时，会根据此乐队的技能展示其在区域中获得的表演等级提升数值。
+
 ## 版权协议
 
 本仓库使用 [Apache License 2.0](LICENSE.txt)。
