@@ -88,7 +88,12 @@
 
 ## 参考资料
 
+以下是 mod 开发过程中可以参考的资料，但是不保证单个资料的信息正确，尽量多方面比对确认信息。
+
 - Civilization VI Modding Knowledge Base: https://sukritact.github.io/Civilization-VI-Modding-Knowledge-Base/
+- Civ VI 原版数据文件 GitHub 镜像: https://github.com/mrobaczyk/civ6, https://github.com/Swiftwork/civ6-explorer
+- CivFanatics Forums / Resources: https://forums.civfanatics.com/
+- Civ6ModdingNotes / Civilization VI Lua 手册: https://github.com/Hemmelfort/Civ6ModdingNotes
 - Civilization VI Wiki : https://civilization.fandom.com/wiki/Civilization_VI
 - 本地游戏资源目录，禁止修改，相对于 steam 的路径一般为 `steam\steamapps\common\Sid Meier's Civilization VI`
 - 本地游戏运行信息，其中包含 log，路径一般为 `%USERNAME%\AppData\Local\Firaxis Games\Sid Meier's Civilization VI`
