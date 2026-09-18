@@ -72,9 +72,8 @@ Folder: `PeoplesWar`
 Under the Gathering Storm ruleset, this mod grants the following effects to human major players:
 
 - Normal and religious combat strength increase with total empire population: +1 at 1–10 population, +2 at 11–20, and so on, capped at +100.
-- Each city gains ranged strike strength, city defense strength, and counter-spy levels from its own population: +1 at 1–10 population, +2 at 11–20, and so on; the bonus is capped at +10 once the city reaches 91 population.
+- Each city gains ranged strike strength, city defense strength, and counter-spy levels from its own population: +2 ranged strike, +2 defense, and +1 counter-spy level at 1–5 population; +4, +4, and +2 at 6–10, and so on; the bonus is capped at +40, +40, and +20 once the city reaches 96 population.
 - Conquered cities lose no population.
-- Newly conquered or loyalty-joined cities may choose "Dissolve": "Dissolve this city and redistribute its entire population among your other retained cities. Any remainder is assigned one population each to the least-populous eligible cities."
 
 AI players do not receive these effects.
 
