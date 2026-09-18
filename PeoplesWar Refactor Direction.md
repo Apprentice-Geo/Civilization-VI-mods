@@ -76,19 +76,19 @@
 
 - `DecodePlotSet`、`EncodePlotSet`、`GetCityAtPlotIndex`、`GetCityPlotIndex`
 - `CleanPendingPlots`、`AddPendingCity`、`RemovePendingCity`
-- `ClearTransaction`、`PrepareDissolve`、`ResolveCapture`、`OnCityOperation`、`OnCityConquered`
+- `ClearTransaction`、`PrepareDissolve`、`ResolveCapture`、`OnCityOperation`
 - `ValidateRecipientCities`、`CommitDissolve`、`OnCityRemovedFromMap`
 - `UpdatePlayerNow` 中的 `CleanPendingPlots(player)` 调用
 - `OnPlayerTurnStarted` 中的 `PROPERTY_TX_ID` 过期清理
 - `RequestPlayerUpdate` 中的 `m_batching` 分支
-- `Initialize` 中的 `GameEvents.PeoplesWar_CityOperation`、`GameEvents.CityConquered`、`Events.CityRemovedFromMap` 注册
+- `Initialize` 中的 `GameEvents.PeoplesWar_CityOperation`、`Events.CityRemovedFromMap` 注册
 
 保留：
 
 - `IsTargetPlayer`、`GetTotalPopulation`、`GetCappedLevel`、`GetNumberProperty`、`Log`
 - 单位能力相关：`IsReligiousUnit`、`IsCombatUnit`、`SetAbilityCount`、`ApplyUnitLevel`、`ApplyLevelToAllUnits`
 - `AttachPlayerModifiers`、`UpdatePlayerNow`、`RequestPlayerUpdate`
-- `OnCityPopulationChanged`、`OnCityChanged`、`OnUnitCreated`、`OnPlayerTurnStarted`、`Initialize`
+- `OnCityPopulationChanged`、`OnCityChanged`、`OnUnitCreated`、`OnCityConquered`（简化为只调用 `RequestPlayerUpdate`）、`OnPlayerTurnStarted`、`Initialize`
 
 ### 城市档位改动
 
@@ -140,7 +140,7 @@ People's War 先行交付，推恩令不阻塞本次合并：
 ## 风险与待验证
 
 1. **附着标志换名**：必须去掉 `V2`；旧存档的具体影响已记录在“已知影响（破坏性兼容）”。
-2. **征服后的人口刷新**：现在 `OnCityConquered` 会先 `RequestPlayerUpdate` 再把地块登记为 pending；删除该方法后，征服导致的帝国人口变化只能依赖 `OnCityPopulationChanged` / `OnCityChanged`。需在游戏内验证征服瞬间单位战斗力等级是否立即刷新；若事件确实不触发，可只保留 `CityConquered` 用于增幅刷新。
+2. **征服后的人口刷新**：已保留简化版 `OnCityConquered`，只调用 `RequestPlayerUpdate` 刷新人口增幅（不再登记 pending 地块）。建议在游戏内确认征服瞬间的单位战斗力等级即时更新。
 3. **单位能力等级切换**：`OnUnitCreated` 读取玩家属性 `PEOPLES_WAR_COMBAT_LEVEL`，该属性语义不变。
 4. **草稿可用性**：草稿目录不含 `.modinfo`，游戏不会加载它；阶段 B 之前它只是代码存档。
 5. **README 一致性**：中英两版的范围、触发时机、上限必须表达同一行为。
