@@ -1,6 +1,6 @@
 # People's War 改造方向：纯人口增强 Mod
 
-本文记录 5.0 的拆分方案。现行效果见 [README](README.md#人民战争)，推恩令后续方向见 [推恩令开发计划](DividingGrace%20Refactor%20Direction.md)。
+人民战争 5.0 的拆分已通过 PR #1 合入 `main`（`8d437a8`）。本文保留当时的方案与验证清单。现行效果见 [README](../../README.md#人民战争)，推恩令后续方向见 [推恩令开发计划](../../DividingGrace%20Refactor%20Direction.md)。
 
 ## 改动目标
 
@@ -14,7 +14,7 @@
 | 每座城市人口 → 城市增幅 | 每 5 人口一档：+2 远程攻击、+2 防御、+1 反间谍等级，上限 +40 / +40 / +20 | 人类主要玩家 |
 | 征服城市人口不损失 | 征服人口损失豁免 100% | 人类主要玩家 |
 
-推恩令机制的留存与后续开发见 [DividingGrace Refactor Direction.md](DividingGrace%20Refactor%20Direction.md)。
+推恩令机制的留存与后续开发见 [DividingGrace Refactor Direction.md](../../DividingGrace%20Refactor%20Direction.md)。
 
 ## 已确认事项
 
@@ -40,7 +40,7 @@
 | 91–95 | 19 | +38 | +38 | +19 |
 | 96+ | 20 | +40 | +40 | +20 |
 
-沿用现有“同阈值 modifier 堆叠”实现（[PeoplesWar_CityEffects.sql](PeoplesWar/Gameplay/PeoplesWar_CityEffects.sql)）：20 个 `REQUIREMENT_CITY_HAS_X_POPULATION`、20 个 `RequirementSet`、60 个 modifier，其中远程攻击 `Amount = 2`、防御 `Amount = 2`、反间谍级别 `Amount = 1`。
+沿用现有“同阈值 modifier 堆叠”实现（[PeoplesWar_CityEffects.sql](../../PeoplesWar/Gameplay/PeoplesWar_CityEffects.sql)）：20 个 `REQUIREMENT_CITY_HAS_X_POPULATION`、20 个 `RequirementSet`、60 个 modifier，其中远程攻击 `Amount = 2`、防御 `Amount = 2`、反间谍级别 `Amount = 1`。
 
 ### 帝国单位战斗力（不变）
 
@@ -50,14 +50,14 @@
 
 | 文件 | 改动 |
 | --- | --- |
-| [PeoplesWar.modinfo](PeoplesWar/PeoplesWar.modinfo) | `version` 4.0 → 5.0；改写 `Description` / `Teaser`；删除 5 个推恩令相关动作与 6 个 UI 文件条目 |
-| [PeoplesWar_Gameplay.lua](PeoplesWar/Gameplay/PeoplesWar_Gameplay.lua) | 删除推恩令事务代码；城市档位 10 → 20 |
-| [PeoplesWar_Abilities.sql](PeoplesWar/Gameplay/PeoplesWar_Abilities.sql) | 重新生成，保留单位能力与 `PEOPLES_WAR_NO_POPULATION_LOSS_AFTER_CONQUEST` |
-| [PeoplesWar_CityEffects.sql](PeoplesWar/Gameplay/PeoplesWar_CityEffects.sql) | 重新生成 20 档 |
-| [PeoplesWar_Localization.sql](PeoplesWar/Gameplay/PeoplesWar_Localization.sql) | 删除 4 条推恩令文案 |
-| [generate_peoples_war_abilities.py](PeoplesWar/Tools/generate_peoples_war_abilities.py) | 更新档位常量与 modifier 数值；删除推恩令文案生成 |
+| [PeoplesWar.modinfo](../../PeoplesWar/PeoplesWar.modinfo) | `version` 4.0 → 5.0；改写 `Description` / `Teaser`；删除 5 个推恩令相关动作与 6 个 UI 文件条目 |
+| [PeoplesWar_Gameplay.lua](../../PeoplesWar/Gameplay/PeoplesWar_Gameplay.lua) | 删除推恩令事务代码；城市档位 10 → 20 |
+| [PeoplesWar_Abilities.sql](../../PeoplesWar/Gameplay/PeoplesWar_Abilities.sql) | 重新生成，保留单位能力与 `PEOPLES_WAR_NO_POPULATION_LOSS_AFTER_CONQUEST` |
+| [PeoplesWar_CityEffects.sql](../../PeoplesWar/Gameplay/PeoplesWar_CityEffects.sql) | 重新生成 20 档 |
+| [PeoplesWar_Localization.sql](../../PeoplesWar/Gameplay/PeoplesWar_Localization.sql) | 删除 4 条推恩令文案 |
+| [generate_peoples_war_abilities.py](../../PeoplesWar/Tools/generate_peoples_war_abilities.py) | 更新档位常量与 modifier 数值；删除推恩令文案生成 |
 | `PeoplesWar/UI/`（6 个文件） | 先原样复制为草稿，再从本 mod 删除 |
-| [README.md](README.md) / [README.en.md](README.en.md) | 人民战争小节改写；不新增推恩令小节 |
+| [README.md](../../README.md) / [README.en.md](../../README.en.md) | 人民战争小节改写；不新增推恩令小节 |
 
 ### modinfo 动作删除清单
 
@@ -131,10 +131,10 @@ README 人民战争小节（两条数值描述 + 征服不掉人口），并删�
 
 People's War 先行交付，推恩令不阻塞本次合并：
 
-1. **留存草稿**：把现有推恩令实现（`PeoplesWar/UI/` 6 个文件 + Gameplay 事务代码 + 4 条本地化文案）原样复制到草稿目录 `DividingGrace/`，不带 `.modinfo`，供后续继续开发（见 [DividingGrace Refactor Direction.md](DividingGrace%20Refactor%20Direction.md) 阶段 A）。
-2. **剥离推恩令**：删除 5 个 modinfo 动作、6 个 UI 文件条目，以及 [PeoplesWar_Gameplay.lua](PeoplesWar/Gameplay/PeoplesWar_Gameplay.lua) 中的事务代码与 4 条本地化文案。
+1. **留存草稿**：把现有推恩令实现（`PeoplesWar/UI/` 6 个文件 + Gameplay 事务代码 + 4 条本地化文案）原样复制到草稿目录 `DividingGrace/`，不带 `.modinfo`，供后续继续开发（见 [DividingGrace Refactor Direction.md](../../DividingGrace%20Refactor%20Direction.md) 阶段 A）。
+2. **剥离推恩令**：删除 5 个 modinfo 动作、6 个 UI 文件条目，以及 [PeoplesWar_Gameplay.lua](../../PeoplesWar/Gameplay/PeoplesWar_Gameplay.lua) 中的事务代码与 4 条本地化文案。
 3. **加强城市增幅**：更新生成器与 Lua 档位（10 → 20 档），重新生成三个 SQL。
-4. **同步文案**：`version` 5.0、`Description`、`Teaser` 与 [README.md](README.md) / [README.en.md](README.en.md) 中英两版。
+4. **同步文案**：`version` 5.0、`Description`、`Teaser` 与 [README.md](../../README.md) / [README.en.md](../../README.en.md) 中英两版。
 5. **交付**：静态检查 + 游戏内验证后，通过 PR 或直接 merge 到 `main`。
 
 推恩令后续直接设计城市生产项目，见其计划文档阶段 C。
