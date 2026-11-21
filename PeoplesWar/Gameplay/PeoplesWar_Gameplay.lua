@@ -32,7 +32,20 @@ local function GetNumberProperty(holder, propertyName, fallback)
 end
 
 local function IsTargetPlayer(player)
-    return player ~= nil and (player:IsMajor() or player:IsMinor())
+    if player == nil then
+        return false
+    end
+    if player:IsMajor() then
+        return true
+    end
+
+    local playerID = player:GetID()
+    for _, minorID in ipairs(PlayerManager.GetAliveMinorIDs()) do
+        if minorID == playerID then
+            return true
+        end
+    end
+    return false
 end
 
 local function GetTotalPopulation(player)
