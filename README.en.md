@@ -76,6 +76,17 @@ This mod applies to human and AI major civilizations and city-states under the G
 - Each city gains 1 counter-spy level per 5 population, starting at 1 population. The bonus is +1 at 1–5 population, +2 at 6–10, and capped at +20 at 96 population.
 - Conquered cities lose no population.
 
+### Dividing Grace
+
+![Dividing Grace cover](covers/DividingGrace.png)
+
+Folder: `DividingGrace`
+
+Under the Gathering Storm ruleset, human major civilizations can select the Dividing Grace project in the city production queue.
+
+- On completion, if the city can be razed and another kept city can receive its population, the city is removed and its population is divided equally among the civilization’s other kept cities. Remainders go to the least populous cities first.
+- If the project cannot take effect, the city remains and recovers half of the project cost, rounded down, when it starts its next production.
+
 ### Population Yields
 
 ![人口产出](covers/PopulationYields.png)

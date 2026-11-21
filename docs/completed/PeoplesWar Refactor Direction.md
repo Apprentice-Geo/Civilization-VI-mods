@@ -1,6 +1,6 @@
 # People's War 改造方向：纯人口增强 Mod
 
-人民战争 5.0 的拆分已通过 PR #1 合入 `main`（`8d437a8`）。本文保留当时的方案与验证清单。现行效果见 [README](../../README.md#人民战争)，推恩令后续方向见 [推恩令开发计划](../../DividingGrace%20Refactor%20Direction.md)。
+人民战争 5.0 的拆分已通过 PR #1 合入 `main`（`8d437a8`）。本文保留当时的方案与验证清单。现行玩法见 README 的[人民战争](../../README.md#人民战争)和[推恩令](../../README.md#推恩令)小节。
 
 ## 改动目标
 
@@ -13,8 +13,6 @@
 | 帝国总人口 → 单位战斗力 | 每 10 帝国总人口 +1 普通与宗教战斗力，上限 +100 | 人类主要玩家 |
 | 每座城市人口 → 城市增幅 | 每 5 人口一档：+2 远程攻击、+2 防御、+1 反间谍等级，上限 +40 / +40 / +20 | 人类主要玩家 |
 | 征服城市人口不损失 | 征服人口损失豁免 100% | 人类主要玩家 |
-
-推恩令机制的留存与后续开发见 [DividingGrace Refactor Direction.md](../../DividingGrace%20Refactor%20Direction.md)。
 
 ## 已确认事项
 
@@ -131,13 +129,13 @@ README 人民战争小节（两条数值描述 + 征服不掉人口），并删�
 
 People's War 先行交付，推恩令不阻塞本次合并：
 
-1. **留存草稿**：把现有推恩令实现（`PeoplesWar/UI/` 6 个文件 + Gameplay 事务代码 + 4 条本地化文案）原样复制到草稿目录 `DividingGrace/`，不带 `.modinfo`，供后续继续开发（见 [DividingGrace Refactor Direction.md](../../DividingGrace%20Refactor%20Direction.md) 阶段 A）。
+1. **留存草稿**：把现有推恩令实现（`PeoplesWar/UI/` 6 个文件 + Gameplay 事务代码 + 4 条本地化文案）原样复制到草稿目录 `DividingGrace/`，不带 `.modinfo`，供后续继续开发。
 2. **剥离推恩令**：删除 5 个 modinfo 动作、6 个 UI 文件条目，以及 [PeoplesWar_Gameplay.lua](../../PeoplesWar/Gameplay/PeoplesWar_Gameplay.lua) 中的事务代码与 4 条本地化文案。
 3. **加强城市增幅**：更新生成器与 Lua 档位（10 → 20 档），重新生成三个 SQL。
 4. **同步文案**：`version` 5.0、`Description`、`Teaser` 与 [README.md](../../README.md) / [README.en.md](../../README.en.md) 中英两版。
 5. **交付**：静态检查 + 游戏内验证后，通过 PR 或直接 merge 到 `main`。
 
-推恩令后续直接设计城市生产项目，见其计划文档阶段 C。
+推恩令后续直接设计城市生产项目。
 
 ## 风险与待验证
 
