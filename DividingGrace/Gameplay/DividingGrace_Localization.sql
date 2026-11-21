@@ -1,13 +1,9 @@
--- Dividing Grace（推恩令）草稿：阶段 A 从 PeoplesWar_Localization.sql 原样摘出的 4 条文案。
--- 标识符仍是 LOC_PEOPLES_WAR_DISSOLVE_*，阶段 B 统一改为 LOC_DIVIDING_GRACE_*。
--- 按钮文案已按新术语写为“推恩令”/“Dividing Grace”。
-
 INSERT OR REPLACE INTO LocalizedText (Language, Tag, Text) VALUES
-  ('zh_Hans_CN', 'LOC_PEOPLES_WAR_DISSOLVE_BUTTON', '推恩令'),
-  ('en_US', 'LOC_PEOPLES_WAR_DISSOLVE_BUTTON', 'Dividing Grace'),
-  ('zh_Hans_CN', 'LOC_PEOPLES_WAR_DISSOLVE_DESCRIPTION', '撤销该城市的城市建制，并将全部人口重新分配至帝国其他已确定保留的城市。无法均分的余数依次分配给其中人口最少的城市，每座城市一个人口。'),
-  ('en_US', 'LOC_PEOPLES_WAR_DISSOLVE_DESCRIPTION', 'Dissolve this city and redistribute its entire population among your other retained cities. Any remainder is assigned one population each to the least-populous eligible cities.'),
-  ('zh_Hans_CN', 'LOC_PEOPLES_WAR_DISSOLVE_NO_RECIPIENTS', '没有其他已确定保留的城市可以接收人口。'),
-  ('en_US', 'LOC_PEOPLES_WAR_DISSOLVE_NO_RECIPIENTS', 'No other retained city can receive this population.'),
-  ('zh_Hans_CN', 'LOC_PEOPLES_WAR_DISSOLVE_COMMAND_BLOCKED', '当前游戏状态不允许对该城市施行推恩令。'),
-  ('en_US', 'LOC_PEOPLES_WAR_DISSOLVE_COMMAND_BLOCKED', 'The current game state does not allow Dividing Grace in this city.');
+    ('zh_Hans_CN', 'LOC_DIVIDING_GRACE_PROJECT_NAME', '推恩令'),
+    ('en_US',      'LOC_DIVIDING_GRACE_PROJECT_NAME', 'Dividing Grace'),
+    ('zh_Hans_CN', 'LOC_DIVIDING_GRACE_PROJECT_DESCRIPTION', '完工时，若本城符合原版夷平规则且有已确定保留的接收城市，则撤销本城，将人口均分给本文明其他已保留的城市，余数优先分给人口较少的城市。若无法执行，原城在开始下一项生产时收回一半项目成本（向下取整）。城市易主时，尚未发放的返还可能丢失。'),
+    ('en_US',      'LOC_DIVIDING_GRACE_PROJECT_DESCRIPTION', 'On completion, if this city is eligible for razing and has a kept city to receive its population, remove this city and divide its population among your other kept cities, with remainders going to the least populous cities first. If the project cannot take effect, this city recovers half of the project cost, rounded down, when it starts its next production. Pending refunds may be lost when a city changes hands.'),
+    ('zh_Hans_CN', 'LOC_DIVIDING_GRACE_REFUND_TITLE', '生产力已回收'),
+    ('en_US',      'LOC_DIVIDING_GRACE_REFUND_TITLE', 'Production Recovered'),
+    ('zh_Hans_CN', 'LOC_DIVIDING_GRACE_REFUND_MESSAGE', '{1_CityName}的当前生产获得了推恩令返还的 {2_Amount} 点 [ICON_Production] 生产力。'),
+    ('en_US',      'LOC_DIVIDING_GRACE_REFUND_MESSAGE', '{1_CityName} recovered {2_Amount} [ICON_Production] Production from Dividing Grace toward its current production.');

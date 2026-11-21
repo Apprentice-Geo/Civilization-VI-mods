@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mod id="864ad063-f515-40ad-9329-db8cbb118bc7" version="1.0">
+  <Properties>
+    <Name>Dividing Grace（推恩令）</Name>
+    <Description>
+    仅限风云变幻。人类主要文明可生产「推恩令」项目。完工时，符合原版夷平规则的城市会被撤销，人口均分给本文明其他已保留的城市，余数优先分给人口较少的城市。若无法执行，原城保留并在开始下一项生产时收回一半项目成本（向下取整）。城市易主时，尚未发放的返还可能丢失。推荐与「人民战争」搭配，保留征服城市的人口。
+    Gathering Storm only. Human major civilizations can run the Dividing Grace project. On completion, a city eligible for razing is removed and its population is divided among the civilization’s other kept cities, with remainders going to the least populous cities first. If the project cannot take effect, the city remains and recovers half of the project cost, rounded down, when it starts its next production. Pending refunds may be lost when a city changes hands. Pair with People’s War to preserve population when conquering cities.
+    </Description>
+    <Teaser>
+    人类主要文明可用城市项目撤销符合条件的城市，并将人口分给其他城市。
+    Human major civilizations can use a city project to remove an eligible city and redistribute its population.
+    </Teaser>
+    <Authors>ApprenTice</Authors>
+    <Created>1795251198</Created>
+    <AffectsSavedGames>1</AffectsSavedGames>
+    <CompatibleVersions>2.0</CompatibleVersions>
+    <SupportsSinglePlayer>1</SupportsSinglePlayer>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <SupportsHotSeat>1</SupportsHotSeat>
+  </Properties>
+
+  <ActionCriteria>
+    <Criteria id="DividingGrace_GatheringStorm">
+      <RuleSetInUse>RULESET_EXPANSION_2</RuleSetInUse>
+    </Criteria>
+  </ActionCriteria>
+
+  <InGameActions>
+    <UpdateDatabase id="DividingGrace_Database" criteria="DividingGrace_GatheringStorm">
+      <File>Gameplay/DividingGrace_Projects.sql</File>
+    </UpdateDatabase>
+    <UpdateText id="DividingGrace_Text" criteria="DividingGrace_GatheringStorm">
+      <File>Gameplay/DividingGrace_Localization.sql</File>
+    </UpdateText>
+    <UpdateIcons id="DividingGrace_Icons" criteria="DividingGrace_GatheringStorm">
+      <File>UI/DividingGrace_Icons.sql</File>
+    </UpdateIcons>
+    <AddGameplayScripts id="DividingGrace_Gameplay" criteria="DividingGrace_GatheringStorm">
+      <File>Gameplay/DividingGrace_Gameplay.lua</File>
+    </AddGameplayScripts>
+    <AddUserInterfaces id="DividingGrace_Completion" criteria="DividingGrace_GatheringStorm">
+      <Properties>
+        <Context>InGame</Context>
+      </Properties>
+      <File>UI/DividingGrace_Completion.xml</File>
+    </AddUserInterfaces>
+  </InGameActions>
+
+  <Files>
+    <File>Gameplay/DividingGrace_Projects.sql</File>
+    <File>Gameplay/DividingGrace_Localization.sql</File>
+    <File>Gameplay/DividingGrace_Gameplay.lua</File>
+    <File>UI/DividingGrace_Completion.lua</File>
+    <File>UI/DividingGrace_Completion.xml</File>
+    <File>UI/DividingGrace_Icons.sql</File>
+  </Files>
+</Mod>
