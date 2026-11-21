@@ -1,13 +1,18 @@
 local MOD_NAME = "PeoplesWar"
 
 local COMBAT_MAX = 100
-local CITY_POPULATION_EFFECT_LEVELS = 20
-local CITY_POPULATION_EFFECT_STEP = 5
+local CITY_COMBAT_LEVELS = 50
+local CITY_COUNTERSPY_LEVELS = 20
+local CITY_COUNTERSPY_STEP = 5
+local LEGACY_CITY_COMBAT_LEVELS = 20
+local LEGACY_CITY_COMBAT_ID_STEP = 5
 
 local PROPERTY_COMBAT_LEVEL = "PEOPLES_WAR_COMBAT_LEVEL"
 local PROPERTY_COMBAT_CAP_WARNING = "PEOPLES_WAR_COMBAT_CAP_WARNING"
 local PROPERTY_POPULATION_MODIFIER_ATTACHED = "PEOPLES_WAR_POPULATION_MODIFIER_ATTACHED"
-local PROPERTY_CITY_MODIFIERS_ATTACHED = "PEOPLES_WAR_CITY_MODIFIERS_ATTACHED"
+local PROPERTY_LEGACY_CITY_MODIFIERS_ATTACHED = "PEOPLES_WAR_CITY_MODIFIERS_ATTACHED"
+local PROPERTY_CITY_COMBAT_MODIFIERS_ATTACHED = "PEOPLES_WAR_CITY_COMBAT_MODIFIERS_ATTACHED"
+local PROPERTY_CITY_COUNTERSPY_MODIFIERS_ATTACHED = "PEOPLES_WAR_CITY_COUNTERSPY_MODIFIERS_ATTACHED"
 
 local m_updating = {}
 local m_updateRequested = {}
@@ -27,7 +32,7 @@ local function GetNumberProperty(holder, propertyName, fallback)
 end
 
 local function IsTargetPlayer(player)
-    return player ~= nil and player:IsHuman() and player:IsMajor()
+    return player ~= nil and (player:IsMajor() or player:IsMinor())
 end
 
 local function GetTotalPopulation(player)
@@ -114,6 +119,38 @@ local function ApplyLevelToAllUnits(player, oldLevel, newLevel)
     end
 end
 
+local function AttachCityCombatModifiers(player, hasLegacyCityModifiers)
+    if player:GetProperty(PROPERTY_CITY_COMBAT_MODIFIERS_ATTACHED) == 1 then
+        return
+    end
+
+    -- The first 20 tiers reuse the modifier IDs already attached in version 5.0.
+    local firstLevel = hasLegacyCityModifiers and LEGACY_CITY_COMBAT_LEVELS + 1 or 1
+    for level = firstLevel, CITY_COMBAT_LEVELS do
+        local suffix = string.format("TIER_%03d", level)
+        if level <= LEGACY_CITY_COMBAT_LEVELS then
+            suffix = string.format("%03d", 1 + (level - 1) * LEGACY_CITY_COMBAT_ID_STEP)
+        end
+        player:AttachModifierByID("PEOPLES_WAR_CITY_RANGED_POP_" .. suffix)
+        player:AttachModifierByID("PEOPLES_WAR_CITY_DEFENSE_POP_" .. suffix)
+    end
+    player:SetProperty(PROPERTY_CITY_COMBAT_MODIFIERS_ATTACHED, 1)
+end
+
+local function AttachCityCounterspyModifiers(player, hasLegacyCityModifiers)
+    if player:GetProperty(PROPERTY_CITY_COUNTERSPY_MODIFIERS_ATTACHED) == 1 then
+        return
+    end
+
+    if not hasLegacyCityModifiers then
+        for level = 1, CITY_COUNTERSPY_LEVELS do
+            local suffix = string.format("%03d", 1 + (level - 1) * CITY_COUNTERSPY_STEP)
+            player:AttachModifierByID("PEOPLES_WAR_CITY_SPY_DEFENSE_POP_" .. suffix)
+        end
+    end
+    player:SetProperty(PROPERTY_CITY_COUNTERSPY_MODIFIERS_ATTACHED, 1)
+end
+
 local function AttachPlayerModifiers(player)
     -- Persist attachment flags because reattaching the same modifier would stack its effects.
     if player:GetProperty(PROPERTY_POPULATION_MODIFIER_ATTACHED) ~= 1 then
@@ -121,18 +158,9 @@ local function AttachPlayerModifiers(player)
         player:SetProperty(PROPERTY_POPULATION_MODIFIER_ATTACHED, 1)
     end
 
-    if player:GetProperty(PROPERTY_CITY_MODIFIERS_ATTACHED) ~= 1 then
-        -- Database requirements recalculate these city effects as each city's population changes.
-        for level = 1, CITY_POPULATION_EFFECT_LEVELS do
-            local threshold = 1 + ((level - 1) * CITY_POPULATION_EFFECT_STEP)
-            local suffix = string.format("%03d", threshold)
-            player:AttachModifierByID("PEOPLES_WAR_CITY_RANGED_POP_" .. suffix)
-            player:AttachModifierByID("PEOPLES_WAR_CITY_DEFENSE_POP_" .. suffix)
-            player:AttachModifierByID("PEOPLES_WAR_CITY_SPY_DEFENSE_POP_" .. suffix)
-        end
-
-        player:SetProperty(PROPERTY_CITY_MODIFIERS_ATTACHED, 1)
-    end
+    local hasLegacyCityModifiers = player:GetProperty(PROPERTY_LEGACY_CITY_MODIFIERS_ATTACHED) == 1
+    AttachCityCombatModifiers(player, hasLegacyCityModifiers)
+    AttachCityCounterspyModifiers(player, hasLegacyCityModifiers)
 end
 
 local function UpdatePlayerNow(playerID, forceUnits)
@@ -217,7 +245,7 @@ local function OnPlayerTurnStarted(playerID)
 end
 
 local function Initialize()
-    for _, player in ipairs(PlayerManager.GetAliveMajors()) do
+    for _, player in ipairs(PlayerManager.GetAlive()) do
         if IsTargetPlayer(player) then
             RequestPlayerUpdate(player:GetID(), true)
         end
