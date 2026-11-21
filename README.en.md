@@ -69,13 +69,12 @@ This effect triggers only once and does not affect AI players. This effect does 
 
 Folder: `PeoplesWar`
 
-Under the Gathering Storm ruleset, this mod grants the following effects to human major players:
+This mod applies to human and AI major civilizations and city-states under the Gathering Storm ruleset.
 
 - Normal and religious combat strength increase with total empire population: +1 at 1–10 population, +2 at 11–20, and so on, capped at +100.
-- Each city gains ranged strike strength, city defense strength, and counter-spy levels from its own population: +2 ranged strike, +2 defense, and +1 counter-spy level at 1–5 population; +4, +4, and +2 at 6–10, and so on; the bonus is capped at +40, +40, and +20 once the city reaches 96 population.
+- Each city gains +1 ranged strike and +1 outer defense at 2 population and every 2 population thereafter, capped at +50 each at 100 population.
+- Each city gains 1 counter-spy level per 5 population, starting at 1 population. The bonus is +1 at 1–5 population, +2 at 6–10, and capped at +20 at 96 population.
 - Conquered cities lose no population.
-
-AI players do not receive these effects.
 
 ### Population Yields
 

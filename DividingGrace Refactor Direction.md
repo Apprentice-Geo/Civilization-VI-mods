@@ -4,26 +4,21 @@
 
 “推恩令”最初以“解放”为名内嵌在 People's War 中：占领或因忠诚度归附的城市可在征服弹窗中选择该动作，效果是撤销城市建制，并把全部人口重新分配给其他已确定保留的城市。该机制与 People's War 的人口增强主题无关，且接管了原版 `RazeCity`、`DisloyalCityChooser` 两个共享 UI Context，因此拆分为独立 mod。
 
-本计划与 [PeoplesWar Refactor Direction.md](PeoplesWar%20Refactor%20Direction.md) 配套：People's War 先行交付并合并到 `main`，推恩令只留存草稿。
+人民战争 5.0 已把推恩令拆出，旧实现随该版本合入 `main`，见 [草稿说明](DividingGrace/DRAFT.md)。推恩令后续直接从阶段 C 的城市生产项目继续设计，具体规则仍待讨论。
 
-## 发布状态与分支策略
+## 开发状态
 
 | 项 | 要求 |
 | --- | --- |
-| 完成度 | **不要求完成**，当前只保留草稿 |
-| 合并 | **不要求合并到 `main`**，不阻塞 People's War 的 PR |
-| 草稿位置 | 仓库根目录 `DividingGrace/`，**不含 `.modinfo`**，因此游戏不会将其识别为 mod |
-| 草稿标记 | 目录内 `DRAFT.md` 说明“草稿、未发布、不参与游戏加载” |
-| README | 不新增推恩令小节（未发布） |
-| 封面 | 不创建；提示词见下文“封面（发布时使用）” |
-
-草稿可以随 People's War 的提交一起留在 `main`（它是纯代码存档，不影响 mod 加载与发布）；如果你希望 `main` 保持干净，把草稿单独留在长期分支即可，两种做法都不影响本计划的后续步骤。
+| 当前状态 | `DividingGrace/` 保留历史草稿，缺少 `.modinfo`，尚未发布 |
+| 后续入口 | 城市生产队列中的「推恩令」项目 |
+| 发布资料 | 正式发布时补齐中英文 README 与封面 |
 
 | 阶段 | 内容 | 状态 |
 | --- | --- | --- |
-| 阶段 A | 草稿留存：从 People's War 原样复制现有实现 | 已完成（随 People's War 交付） |
-| 阶段 B | 正式 mod 化：命名空间改名、补 `.modinfo`、独立验证 | 待实施（不设期限） |
-| 阶段 C | 重构为城市 Project，取消共享 UI 接管 | 设计稿（见下） |
+| 阶段 A | 从 People's War 摘出旧实现并留存 | 已完成 |
+| 阶段 B | 将弹窗版做成独立 Mod | 已取消 |
+| 阶段 C | 将推恩令设计为城市生产项目 | 设计讨论中 |
 
 ## 命名
 
@@ -35,94 +30,17 @@
 | 属性 / 事件前缀 | `DIVIDING_GRACE_` / `DividingGrace_` |
 | 本地化前缀 | `LOC_DIVIDING_GRACE_` |
 
-## 阶段 A：草稿留存
-
-从 People's War 剥离前，先把现有实现原样复制到 `DividingGrace/`。此阶段**不改文件名、不改标识符**，尽量保持与原代码逐字一致，方便阶段 B 做可控的重命名。
-
-| 来源（People's War） | 草稿去向（DividingGrace） |
-| --- | --- |
-| `UI/RazeCity_PeoplesWar.lua` | `UI/RazeCity_PeoplesWar.lua` |
-| `UI/RazeCity_PeoplesWar.xml` | `UI/RazeCity_PeoplesWar.xml` |
-| `UI/RazeCity_Disabled.lua` | `UI/RazeCity_Disabled.lua` |
-| `UI/DisloyalCityChooser_PeoplesWar.lua` | `UI/DisloyalCityChooser_PeoplesWar.lua` |
-| `UI/DisloyalCityChooser_PeoplesWar.xml` | `UI/DisloyalCityChooser_PeoplesWar.xml` |
-| `UI/DisloyalCityChooser_Disabled.lua` | `UI/DisloyalCityChooser_Disabled.lua` |
-| `PeoplesWar_Gameplay.lua` 中的推恩令事务代码 | `Gameplay/DividingGrace_Gameplay.lua` |
-| `PeoplesWar_Localization.sql` 中的 4 条文案 | `Gameplay/DividingGrace_Localization.sql` |
-| —— | `DRAFT.md`（状态说明） |
-
-草稿中的 Gameplay 脚本只包含推恩令逻辑，因此需要从 [PeoplesWar_Gameplay.lua](PeoplesWar/Gameplay/PeoplesWar_Gameplay.lua) 摘出以下部分：`DecodePlotSet`、`EncodePlotSet`、`GetCityAtPlotIndex`、`GetCityPlotIndex`、`CleanPendingPlots`、`AddPendingCity`、`RemovePendingCity`、`ClearTransaction`、`PrepareDissolve`、`ResolveCapture`、`OnCityOperation`、`OnCityConquered`、`ValidateRecipientCities`、`CommitDissolve`、`OnCityRemovedFromMap`，以及它们依赖的 `Log`、`GetNumberProperty`、`IsTargetPlayer` 与 `OnPlayerTurnStarted` 中的事务过期清理。
-
-## 阶段 B：正式 mod 化
-
-### modinfo 要点
-
-- 新 UUID，不得与 `PeoplesWar` 的 `7e6dfc8c-a7a4-4d1b-a96e-df7a24d70445` 重复。
-- `AffectsSavedGames` 1、`SupportsMultiplayer` 1、`SupportsHotSeat` 1、`CompatibleVersions` 2.0。
-- `ActionCriteria` 限 `RULESET_EXPANSION_2`。
-- `AddGameplayScripts`：`Gameplay/DividingGrace_Gameplay.lua`。
-- `UpdateText`：`Gameplay/DividingGrace_Localization.sql`。
-- `ReplaceUIScript` ×2（`RazeCity`、`DisloyalCityChooser`，`LoadOrder 100721`）配合两个 `_Disabled.lua`。
-- `AddUserInterfaces` ×2（`Context = InGame`）、`ImportFiles`（4 个 UI 文件）。
-- `<Files>` 覆盖随包发布的全部文件。
-
-### 文件重命名
-
-| 草稿（阶段 A） | 正式（阶段 B） |
-| --- | --- |
-| `UI/RazeCity_PeoplesWar.lua` | `UI/RazeCity_DividingGrace.lua` |
-| `UI/RazeCity_PeoplesWar.xml` | `UI/RazeCity_DividingGrace.xml` |
-| `UI/DisloyalCityChooser_PeoplesWar.lua` | `UI/DisloyalCityChooser_DividingGrace.lua` |
-| `UI/DisloyalCityChooser_PeoplesWar.xml` | `UI/DisloyalCityChooser_DividingGrace.xml` |
-| `UI/RazeCity_Disabled.lua` / `UI/DisloyalCityChooser_Disabled.lua` | 名称不变 |
-
-### 命名空间改名对照
-
-| 旧（People's War） | 新（Dividing Grace） |
-| --- | --- |
-| `PEOPLES_WAR_PENDING_CITY_PLOTS` | `DIVIDING_GRACE_PENDING_CITY_PLOTS` |
-| `PEOPLES_WAR_DISSOLVE_READY` | `DIVIDING_GRACE_READY` |
-| `PEOPLES_WAR_DISSOLVE_COMMITTED` | `DIVIDING_GRACE_COMMITTED` |
-| `PEOPLES_WAR_DISSOLVE_TX_ID` | `DIVIDING_GRACE_TX_ID` |
-| `PEOPLES_WAR_DISSOLVE_TX_CITY_ID` | `DIVIDING_GRACE_TX_CITY_ID` |
-| `PEOPLES_WAR_DISSOLVE_TX_TARGET_PLOT` | `DIVIDING_GRACE_TX_TARGET_PLOT` |
-| `PEOPLES_WAR_DISSOLVE_TX_POPULATION` | `DIVIDING_GRACE_TX_POPULATION` |
-| `PEOPLES_WAR_DISSOLVE_TX_RECIPIENTS` | `DIVIDING_GRACE_TX_RECIPIENTS` |
-| `PEOPLES_WAR_DISSOLVE_TX_TURN` | `DIVIDING_GRACE_TX_TURN` |
-| `PeoplesWar_CityOperation` | `DividingGrace_CityOperation` |
-| `LOC_PEOPLES_WAR_DISSOLVE_BUTTON` | `LOC_DIVIDING_GRACE_BUTTON` |
-| `LOC_PEOPLES_WAR_DISSOLVE_DESCRIPTION` | `LOC_DIVIDING_GRACE_DESCRIPTION` |
-| `LOC_PEOPLES_WAR_DISSOLVE_NO_RECIPIENTS` | `LOC_DIVIDING_GRACE_NO_RECIPIENTS` |
-| `LOC_PEOPLES_WAR_DISSOLVE_COMMAND_BLOCKED` | `LOC_DIVIDING_GRACE_COMMAND_BLOCKED` |
-
-改名时保持既有交互契约不变：
-
-- UI 通过 `UI.RequestPlayerOperation(..., PlayerOperations.EXECUTE_SCRIPT, parameters)` 调用 gameplay，`OnStart = DividingGrace_CityOperation`。
-- 玩家属性保存事务快照；地块属性 `DIVIDING_GRACE_READY` / `DIVIDING_GRACE_COMMITTED` 作为 UI 与 gameplay 之间的握手信号。
-- 人口均分规则不变：整除后按人口升序每城补 1。
-- `CityRemovedFromMap` 是删除权威；事务必须在发起回合内完成，过期即清理。
-
-### 文案
-
-| 键 | zh_Hans_CN | en_US |
-| --- | --- | --- |
-| `LOC_DIVIDING_GRACE_BUTTON` | 推恩令 | Dividing Grace |
-| `LOC_DIVIDING_GRACE_DESCRIPTION` | 撤销该城市的城市建制，并将全部人口重新分配至帝国其他已确定保留的城市。无法均分的余数依次分配给其中人口最少的城市，每座城市一个人口。 | Dissolve this city and redistribute its entire population among your other retained cities. Any remainder is assigned one population each to the least-populous eligible cities. |
-| `LOC_DIVIDING_GRACE_NO_RECIPIENTS` | 没有其他已确定保留的城市可以接收人口。 | No other retained city can receive this population. |
-| `LOC_DIVIDING_GRACE_COMMAND_BLOCKED` | 当前游戏状态不允许对该城市施行推恩令。 | The current game state does not allow Dividing Grace in this city. |
-
 ## 与其他 mod 的关系
 
 - People's War 与 Dividing Grace 互相独立、可单独启用；“征服城市人口不会损失”留在 People's War。
 - 只启用 Dividing Grace 时，被征服城市的人口已按原版规则损失，可再分配的人口更少。README 与 modinfo 应建议与 People's War 同时启用。
 - 与 [RazeOriginalCapital](RazeOriginalCapital/RazeOriginalCapital.modinfo) 的交互：它把 [`COMBAT_RAZE_ANY_CITY`](RazeOriginalCapital/RazeOriginalCapital.sql#L7-L10) 设为 true，放宽 `CanRaze()`，使更多城市（含原始首都）可用推恩令。属于玩家自主组合，不做限制。
-- 阶段 C 完成后，Dividing Grace 不再替换任何共享 UI Context，与其他 UI mod 的冲突面归零。
 
 ## 阶段 C：重构为城市 Project
 
 ### 改动目标
 
-将推恩令从征服城市 UI 按钮重构为**城市 Project**：
+通过城市生产队列启动推恩令，保留原版 `RazeCity` / `DisloyalCityChooser` 界面。
 
 ```text
 城市生产“推恩令”项目
@@ -132,56 +50,28 @@
 → 将人口按现有规则重新分配
 ```
 
-核心目标：
-
-- 移除对 `RazeCity` / `DisloyalCityChooser` 等共享 UI 的接管；
-- 降低与其他 UI Mod 的冲突；
-- 保留现有“删除城市 + 人口重新分配”的核心玩法。
-
-### 已确认事项
+### 玩法草案（待讨论）
 
 - **开放范围**：所有 `city:CanRaze()` 为真的城市均可使用。
 - **不额外限制首都**：完全遵循游戏自身的 `CanRaze()` 规则。
-- **人口分配规则**：完全沿用当前实现。
-- **项目成本**采用二次凸函数：
-
-```text
-C(k, e) = 40 + a_e * k + q_e * k * (k - 1) / 2
-a_e = max(2, 10 - e)
-q_e = max(1, 4 - floor(e / 2))
-```
-
-- `e = 0..8`：远古至未来时代。
-- `k = 1..32`：当前使用档位。
-- **32 次以后不禁止使用**，永久使用第 32 档。
-- 需要生成 **9 × 32 = 288 个 Project**。
-- **Project 开始生产后锁定成本**：时代变化不追溯修改；其他城市先完成推恩令导致次数增加，也不影响已经开始的项目。
-- 允许多个城市同时生产同一档项目。
-- 只有城市真正删除并完成分配后：`success_count += 1`。
-- 项目完成必须由生产完成事件即时处理，不能依赖回合开始，以支持砍树、收获资源等即时生产力。
-- 项目完成时重新读取真实状态进行最终校验。
-- 如果没有合法人口接收城市：城市不删除；`success_count` 不增加；返还 `floor(0.32 * C)` 生产力。
-- 失败返还模仿奇观失败机制：暂存生产力；下一次开始生产时注入；发送自定义的原生样式“生产力已回收”通知。
+- **人口分配规则**：均分给同一玩家名下其他合格城市，余数依人口升序逐城分配，同人口按地块编号排序。
+- **项目成本**：首版使用一个项目，`Cost = 100`、`CostProgressionModel = COST_PROGRESSION_GAME_PROGRESS`、`CostProgressionParam1 = 200`。成本随原版科技、市政进度增长，标准速度下为 100–200 生产力，并由引擎按游戏速度缩放。
+- 项目通过完工事件即时处理，以支持砍树、收获资源等即时生产力。每次完工都重新检查城市资格和接收城市。
+- **失败返还**：完工时若没有合法接收城市，保留原城和人口，返还本次实际完工成本的 50%，向下取整。返还量暂存在原城，等该城下一项生产开始后发放一次，并发送「生产力已回收」通知。
 - 不要求保留正常 RAZE 的外交惩罚、时代得分等副作用；没有反而可以接受。
 - 同回合多个城市完成项目：不保证处理顺序；每个事件独立重新校验；以实现简单为优先。
-- 计划删除原有的 `RazeCity` / `DisloyalCityChooser` UI 接管代码。
 
-### Project 数据落点（实施时确认）
+### 首版验证
 
-- 288 个项目需写入 `Types`（`KIND_PROJECT`）与 `Projects` 表；成本列、是否需要 `PrereqTech` / `PrereqCivic`、是否受 `GameInfo.Projects` 既有列约束，实施时对照 `GameInfo.Projects` 与本地游戏数据文件核对。
-- 项目命名建议：`PROJECT_DIVIDING_GRACE_E{e}_K{k}`（`e` 为 0..8，`k` 为 1..32），显示名与说明按档位生成本地化文案。
-- 动态解锁：只向城市开放与当前时代、`success_count`、`city:CanRaze()` 匹配的档位；已经开始生产的旧档位不得失效。
+1. 向 `Types`（`KIND_PROJECT`）和 `Projects` 写入一个 `PROJECT_DIVIDING_GRACE`，通过原版生产队列验证能开工。检查 `city:CanRaze()` 在自建城市、选择保留的征服城市和首都上的行为。
+2. 用 `Events.CityProjectCompleted` 接收完工并重新校验。分别通过正常生产与砍树完工，确认没有合格接收城市时原城与人口保留。
+3. 用 `CityManager.DestroyCity(city)` 验证撤城。检查城市、区域和地块的清理，观察 `CityRemovedFromMap` 的触发时序，确认人口只在撤城成功后分配一次。
+4. 验证人口整除、余数分配、接收城市易主、同回合多城完工和在建项目存档重载。
+5. 核对完工时的实际成本与返还量。验证用 `BuildQueue:AddProgress` 将暂存生产力发放给下一项生产，覆盖空队列、同回合切换和读档后只发一次，并确认通知正常显示。
 
-### 待实验问题
+### 后续定价
 
-1. **288 个 Project 的动态解锁**（最重要的 PoC）
-   验证能否根据“当前时代 + `success_count` + `city:CanRaze()`”只向城市开放正确的 Project，同时已经开始生产的旧档位不会失效、存档重载后状态正确、多城市并行生产正常。
-2. **失败生产力返还**
-   验证 `Property 暂存 refund → 玩家选择下一生产项 → BuildQueue:AddProgress(refund)` 是否稳定，包括队列为空、同回合重新选择生产、存档重载，以及不会重复返还。
-3. **城市删除方式**
-   优先实验 `CityManager.DestroyCity(city)`，确认 Gameplay Script 中可正常执行、`CityRemovedFromMap` 正常触发、城市对象与区域、地块正常清理、不产生残留状态。若不可用，再考虑 Gameplay → UI bridge → `CityManager.RequestCommand(... DESTROY ...)`。
-4. **同回合多项目完成的事件时序**
-   观察 `DestroyCity()` 与 `CityRemovedFromMap` 是同步还是延迟触发。若删除存在延迟，增加简单的玩家级 dissolve transaction lock；若同步，则无需额外处理。
+原方案为远古至未来共 9 个时代，每个时代按成功次数设 32 个成本档，合计 `9 × 32 = 288` 个项目。根据首版试玩结果，再决定是否需要分段定价、成功计数和在建项目锁价。
 
 ## 封面（发布时使用）
 
@@ -259,16 +149,13 @@ landscape or non-square framing.
 
 ## 实施顺序
 
-1. 阶段 A 草稿留存，随 People's War 的交付一并提交。
-2. 后续在草稿上继续开发：阶段 B 补 `.modinfo` 与命名空间改名，使推恩令成为可独立加载的 mod（不要求合并到 `main`）。
-3. 阶段 C 先完成“288 Project 动态解锁” PoC，再依次解决失败生产力返还、城市删除方式、同回合时序。
+1. 将项目版做成独立 Mod，使用新的 UUID 和 `DIVIDING_GRACE_*` 命名空间。入口声明限定「风云变幻」，加载项目数据、本地化和 gameplay 脚本。
+2. 先跑通单个项目从开工、完工校验、撤城到人口分配的过程，再验证失败返还。两条路径均纳入首版交付。
+3. 根据试玩结果决定是否需要分段定价。
 
 ## 验证
 
-- 阶段 A：草稿逐字来自 People's War 现有实现，仅作目录搬迁，可对照 diff 确认无逻辑改动。
-- 阶段 B：`.modinfo` XML 可解析；两个 `ReplaceUIScript` 的 `LoadOrder 100721` 生效（本 Mod 界面不被风云变幻的同名替换覆盖）。
-- 征服城市与忠诚归附城市两条入口都能弹出推恩令按钮，按钮禁用原因正确。
-- 人口分配：整除与余数分配、目标城市失效、无合法接收城市、事务过期清理。
-- 存档重载后 pending 状态与事务状态正确。
-- 阶段 C 完成后，确认 People's War 与 Dividing Grace 都不再替换共享 UI Context。
+- `.modinfo` XML 可解析，项目从生产队列进入，原版征服与归附界面正常打开。
+- 验证成本随研发进度和游戏速度变化、即时生产力完成项目，以及存档重载后的在建状态。
+- 验证城市撤销、人口分配与失败返还，场景见「首版验证」。
 - `git diff --check` 无空白问题；发布时 README 中英两版同步。

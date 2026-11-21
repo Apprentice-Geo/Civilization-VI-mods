@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="7e6dfc8c-a7a4-4d1b-a96e-df7a24d70445" version="5.0">
+<Mod id="7e6dfc8c-a7a4-4d1b-a96e-df7a24d70445" version="6.0">
   <Properties>
     <Name>People's War（人民战争）</Name>
     <Description>
-    仅限风云变幻。人类主要玩家从1人口起，每10点帝国总人口获得+1普通与宗教战斗力，最高+100。
-    每座城市从1人口起、每增加5人口获得+2远程攻击与防御，最高+40；并获得+1反间谍等级，最高+20。
+    仅限风云变幻。效果适用于人类主要文明、AI主要文明和城邦。帝国总人口从1人口起每10人口获得+1普通与宗教战斗力，最高+100。
+    单城每满2人口获得+1远程攻击和+1外防御，100人口时各封顶+50。反间谍从1人口起每5人口增加1级，96人口时封顶+20级。
     征服城市人口不会损失。
-    Gathering Storm only. Starting at 1 population, human major players gain +1 normal and religious combat strength per 10 total population, capped at +100.
-    Starting at 1 population, each city gains +2 ranged strike and defense per 5 population, capped at +40, and +1 counter-spy level per 5 population, capped at +20.
+    Gathering Storm only. Applies to human and AI major civilizations and city-states. Starting at 1 population, gain +1 normal and religious combat strength per 10 total population, capped at +100.
+    Each city gains +1 ranged strike and +1 outer defense at 2 population and every 2 population thereafter, capped at +50 each at 100 population. Starting at 1 population, each city gains 1 counter-spy level per 5 population, capped at +20 at 96 population.
     Conquered cities lose no population.
     </Description>
     <Teaser>
-    基于人口数量强化单位与城市。
-    Strengthen units and cities based on population.
+    按人口强化人类文明、AI文明和城邦的单位与城市。
+    Population strengthens units and cities for human and AI civilizations and city-states.
     </Teaser>
     <Authors>ApprenTice</Authors>
     <Created>1783958400</Created>

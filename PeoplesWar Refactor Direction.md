@@ -1,5 +1,7 @@
 # People's War 改造方向：纯人口增强 Mod
 
+本文记录 5.0 的拆分方案。现行效果见 [README](README.md#人民战争)，推恩令后续方向见 [推恩令开发计划](DividingGrace%20Refactor%20Direction.md)。
+
 ## 改动目标
 
 把 People's War 收敛为只做人口增强的 mod，并把内嵌的推恩令机制整体迁出。本版是 People's War 的**最终交付版本**，推恩令不在本次交付范围内。
@@ -135,14 +137,14 @@ People's War 先行交付，推恩令不阻塞本次合并：
 4. **同步文案**：`version` 5.0、`Description`、`Teaser` 与 [README.md](README.md) / [README.en.md](README.en.md) 中英两版。
 5. **交付**：静态检查 + 游戏内验证后，通过 PR 或直接 merge 到 `main`。
 
-草稿目录与推恩令的后续开发不要求合并到 `main`，其正式 mod 化与 Project 重构见其计划文档阶段 B / C。
+推恩令后续直接设计城市生产项目，见其计划文档阶段 C。
 
 ## 风险与待验证
 
 1. **附着标志换名**：必须去掉 `V2`；旧存档的具体影响已记录在“已知影响（破坏性兼容）”。
 2. **征服后的人口刷新**：已保留简化版 `OnCityConquered`，只调用 `RequestPlayerUpdate` 刷新人口增幅（不再登记 pending 地块）。建议在游戏内确认征服瞬间的单位战斗力等级即时更新。
 3. **单位能力等级切换**：`OnUnitCreated` 读取玩家属性 `PEOPLES_WAR_COMBAT_LEVEL`，该属性语义不变。
-4. **草稿可用性**：草稿目录不含 `.modinfo`，游戏不会加载它；阶段 B 之前它只是代码存档。
+4. **草稿可用性**：草稿目录缺少 `.modinfo`，作为旧实现留存。
 5. **README 一致性**：中英两版的范围、触发时机、上限必须表达同一行为。
 
 ## 验证
