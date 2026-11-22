@@ -3,8 +3,7 @@ include("HegemonyVictory_Military")
 HegemonyVictory = {}
 
 local VICTORY_TYPE = "VICTORY_HEGEMONY"
-local HIGHEST_OPPONENT = { "score", "food", "production" }
-local OPPONENT_SUM = { "science", "culture", "faith", "gold", "military" }
+local OPPONENT_SUM = { "food", "production", "science", "culture", "faith", "gold", "military" }
 local MAJORITY = { "wonders", "suzerain" }
 
 function HegemonyVictory.IsEnabled()
@@ -96,19 +95,15 @@ function HegemonyVictory.Evaluate(snapshot, playerID)
         return nil, false
     end
 
-    local results = {}
-    local allMet = true
-    for _, key in ipairs(HIGHEST_OPPONENT) do
-        local target = -math.huge
-        for _, id in ipairs(snapshot.ids) do
-            if id ~= playerID then
-                target = math.max(target, snapshot.majors[id][key])
-            end
+    local scoreTarget = -math.huge
+    for _, id in ipairs(snapshot.ids) do
+        if id ~= playerID then
+            scoreTarget = math.max(scoreTarget, snapshot.majors[id].score)
         end
-        local met = player[key] > target
-        results[key] = { value = player[key], target = target, met = met }
-        allMet = allMet and met
     end
+
+    local allMet = player.score > scoreTarget
+    local results = { score = { value = player.score, target = scoreTarget, met = allMet } }
 
     for _, key in ipairs(OPPONENT_SUM) do
         local target = 0

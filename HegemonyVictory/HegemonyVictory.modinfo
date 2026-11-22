@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="e9ad8fff-b76a-41ea-8097-93412c68139d" version="2">
+<Mod id="e9ad8fff-b76a-41ea-8097-93412c68139d" version="4">
   <Properties>
     <Name>Hegemony Victory（霸权胜利）</Name>
     <Description>
-    风云变幻非组队对局的独立胜利方式，默认开启。人类和 AI 主要文明可在全局回合开始或攻占城市后，凭总分、产出、军力、世界奇观和城邦宗主权的优势获胜。可在局内面板查看进度。
-    An independent victory for Gathering Storm games without teams, enabled by default. Human and AI major civilizations can win at the start of a game turn or after a city conquest by leading in score, yields, military strength, world wonders, and city-state suzerainty. Track each requirement in the in-game panel.
+    风云变幻非组队对局的独立胜利方式，默认开启。人类和 AI 主要文明可在全局回合开始或攻占城市后，凭总分、产出、军力、世界奇观和城邦宗主权的优势获胜。食物和生产力分别须超过其他存活主要文明的合计。可在世界排名查看进度。
+    An independent victory for Gathering Storm games without teams, enabled by default. Human and AI major civilizations can win at the start of a game turn or after a city conquest by leading in score, yields, military strength, world wonders, and city-state suzerainty. Food and Production must each exceed the combined output of other living major civilizations. Track progress in World Rankings.
     </Description>
     <Teaser>
-    通过总分、产出、军力、世界奇观和城邦宗主权的优势取得霸权胜利。
-    Earn a Hegemony Victory through dominance in score, yields, military strength, world wonders, and city-state suzerainty.
+    通过总分、产出、军力、世界奇观和城邦宗主权的优势取得霸权胜利，并在世界排名查看进度。
+    Earn a Hegemony Victory through dominance in score, yields, military strength, world wonders, and city-state suzerainty. Track progress in World Rankings.
     </Teaser>
     <Authors>ApprenTice</Authors>
     <Created>1795332371</Created>
@@ -49,7 +49,8 @@
       <File>Gameplay/HegemonyVictory_Military.lua</File>
       <File>Gameplay/HegemonyVictory_Rules.lua</File>
       <File>UI/EndGameMenu_HegemonyVictory.lua</File>
-      <File>UI/Icons/HegemonyVictory26.dds</File>
+      <File>UI/HegemonyVictory_MetricTable.lua</File>
+      <File>UI/HegemonyVictory_MetricTable.xml</File>
     </ImportFiles>
     <UpdateIcons id="HegemonyVictory_Icons" criteria="HegemonyVictory_GatheringStorm">
       <File>UI/HegemonyVictory_Icons.sql</File>
@@ -57,19 +58,6 @@
     <AddGameplayScripts id="HegemonyVictory_Gameplay" criteria="HegemonyVictory_GatheringStorm">
       <File>Gameplay/HegemonyVictory_Gameplay.lua</File>
     </AddGameplayScripts>
-    <AddUserInterfaces id="HegemonyVictory_Progress" criteria="HegemonyVictory_GatheringStorm">
-      <Properties>
-        <Context>InGame</Context>
-      </Properties>
-      <File>UI/HegemonyVictory_Progress.xml</File>
-    </AddUserInterfaces>
-    <ReplaceUIScript id="HegemonyVictory_PartialScreenHooks" criteria="HegemonyVictory_GatheringStorm">
-      <Properties>
-        <LoadOrder>10</LoadOrder>
-        <LuaContext>PartialScreenHooks</LuaContext>
-        <LuaReplace>UI/HegemonyVictory_PartialScreenHooks.lua</LuaReplace>
-      </Properties>
-    </ReplaceUIScript>
     <ReplaceUIScript id="HegemonyVictory_WorldRankings" criteria="HegemonyVictory_GatheringStorm">
       <Properties>
         <LoadOrder>10</LoadOrder>
@@ -88,11 +76,9 @@
     <File>Gameplay/HegemonyVictory_Victory.sql</File>
     <File>UI/EndGameMenu_HegemonyVictory.lua</File>
     <File>UI/HegemonyVictory_Icons.sql</File>
-    <File>UI/HegemonyVictory_PartialScreenHooks.lua</File>
-    <File>UI/HegemonyVictory_Progress.lua</File>
-    <File>UI/HegemonyVictory_Progress.xml</File>
+    <File>UI/HegemonyVictory_MetricTable.lua</File>
+    <File>UI/HegemonyVictory_MetricTable.xml</File>
     <File>UI/HegemonyVictory_ProgressText.sql</File>
     <File>UI/HegemonyVictory_WorldRankings.lua</File>
-    <File>UI/Icons/HegemonyVictory26.dds</File>
   </Files>
 </Mod>
