@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Name="HegemonyVictory_MetricTable" Anchor="L,T">
+  <Box ID="MetricHeader" Size="440,28" Color="33,43,49,255">
+    <Label Anchor="L,C" Align="L,C" Offset="10,0" Size="130,24" Style="FontNormalMedium14" String="LOC_HEGEMONY_PROGRESS_METRIC" />
+    <Label Anchor="L,C" Align="L,C" Offset="144,0" Size="90,24" Style="FontNormalMedium14" String="LOC_HEGEMONY_PROGRESS_VALUE" />
+    <Label Anchor="L,C" Align="L,C" Offset="240,0" Size="86,24" Style="FontNormalMedium14" String="LOC_HEGEMONY_PROGRESS_TARGET" />
+    <Label Anchor="L,C" Align="L,C" Offset="332,0" Size="108,24" Style="FontNormalMedium14" String="LOC_HEGEMONY_PROGRESS_STATUS" />
+  </Box>
+  <Stack ID="MetricRows" Offset="0,28" StackGrowth="Down" />
+
+  <Instance Name="HegemonyMetric">
+    <Box ID="Row" Size="440,24" Color="23,32,40,220" ConsumeMouseOver="1">
+      <Label ID="Metric" Anchor="L,C" Align="L,C" Offset="10,0" Size="130,24" Style="FontNormal14" />
+      <Label ID="Value" Anchor="L,C" Align="L,C" Offset="144,0" Size="90,24" Style="FontNormal14" />
+      <Label ID="Target" Anchor="L,C" Align="L,C" Offset="240,0" Size="86,24" Style="FontNormal14" />
+      <Label ID="Status" Anchor="L,C" Align="L,C" Offset="332,0" Size="108,24" Style="FontNormal14" />
+    </Box>
+  </Instance>
+</Context>
