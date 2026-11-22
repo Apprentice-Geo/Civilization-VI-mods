@@ -13,7 +13,7 @@ local METRICS = {
     { key = "culture", label = "LOC_YIELD_CULTURE_NAME", help = "SUM" },
     { key = "faith", label = "LOC_YIELD_FAITH_NAME", help = "SUM" },
     { key = "gold", label = "LOC_HEGEMONY_PROGRESS_NET_GOLD", help = "GOLD" },
-    { key = "military", label = "LOC_HEGEMONY_PROGRESS_MILITARY", help = "SUM" },
+    { key = "military", label = "LOC_HEGEMONY_PROGRESS_MILITARY", help = "MILITARY" },
     { key = "wonders", label = "LOC_HEGEMONY_PROGRESS_WONDERS", help = "WONDERS" },
     { key = "suzerain", label = "LOC_HEGEMONY_PROGRESS_SUZERAIN", help = "SUZERAIN" }
 }

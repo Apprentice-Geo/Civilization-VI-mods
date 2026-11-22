@@ -31,6 +31,8 @@ INSERT INTO LocalizedText (Language, Tag, Text) VALUES
     ('en_US',      'LOC_HEGEMONY_PROGRESS_HELP_SUM', 'Exceed the combined value of all other surviving major civilizations.'),
     ('zh_Hans_CN', 'LOC_HEGEMONY_PROGRESS_HELP_GOLD', '每回合金币扣除总维护费后，严格高于其他存活主要文明的正净收入合计。'),
     ('en_US',      'LOC_HEGEMONY_PROGRESS_HELP_GOLD', 'Gold per turn after all maintenance must exceed the combined positive net incomes of all other surviving major civilizations.'),
+    ('zh_Hans_CN', 'LOC_HEGEMONY_PROGRESS_HELP_MILITARY', '每个单位取近战和远程强度中的较高值，按剩余生命值比例折算。各文明汇总后向下取整，国库金币不计入。本方须严格高于其他存活主要文明的合计。'),
+    ('en_US',      'LOC_HEGEMONY_PROGRESS_HELP_MILITARY', 'For each unit, take the higher of its melee and ranged strength and scale it by its remaining health percentage. Sum each civilization’s units and round down. Treasury Gold is excluded. Exceed the combined strength of all other surviving major civilizations.'),
     ('zh_Hans_CN', 'LOC_HEGEMONY_PROGRESS_HELP_WONDERS', '拥有数量须超过全图现存已完工世界奇观的一半。全图没有符合条件的奇观时自动满足。'),
     ('en_US',      'LOC_HEGEMONY_PROGRESS_HELP_WONDERS', 'Own more than half of the completed world wonders still standing. Met automatically when the world count is zero.'),
     ('zh_Hans_CN', 'LOC_HEGEMONY_PROGRESS_HELP_SUZERAIN', '担任宗主的城邦数量须超过全图现存有宗主城邦的一半。全图没有符合条件的城邦时自动满足。'),

@@ -51,7 +51,7 @@ An independent victory for Gathering Storm games without teams. The option is ch
 The game checks at the start of each global turn and after each city conquest. Human and AI major civilizations win when they meet all the following requirements at once. Rivals include every other living major civilization, including unmet civilizations.
 
 - Score, Food per turn, and Production per turn must each strictly exceed the highest rival in that metric.
-- Science, Culture, Faith, and net Gold per turn, along with military strength, must each strictly exceed the corresponding rival total. Net Gold deducts maintenance and counts a rival's zero or negative net income as zero. Military strength uses current units and excludes the treasury.
+- Science, Culture, Faith, and net Gold per turn, along with military strength, must each strictly exceed the corresponding rival total. Net Gold deducts maintenance and counts a rival's zero or negative net income as zero. Military strength uses current units' strength and remaining health, rounded down after summing each civilization's units. Treasury Gold is excluded.
 - Own more than half the completed world wonders still on the map and be suzerain of more than half the living city-states that have a suzerain. Each requirement is automatic when its corresponding world total is zero.
 
 The base game handles victory when only one major civilization remains.
