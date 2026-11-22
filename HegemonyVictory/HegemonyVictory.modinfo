@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="e9ad8fff-b76a-41ea-8097-93412c68139d" version="1">
+<Mod id="e9ad8fff-b76a-41ea-8097-93412c68139d" version="2">
   <Properties>
     <Name>Hegemony Victory（霸权胜利）</Name>
     <Description>
@@ -32,11 +32,6 @@
     <UpdateText id="HegemonyVictory_ConfigText">
       <File>Gameplay/HegemonyVictory_Text.sql</File>
     </UpdateText>
-    <ImportFiles id="HegemonyVictory_ConfigTextures">
-      <File>UI/Icons/HegemonyVictory26.dds</File>
-      <File>UI/Icons/HegemonyVictory64.dds</File>
-      <File>UI/Icons/HegemonyVictory80.dds</File>
-    </ImportFiles>
     <UpdateIcons id="HegemonyVictory_ConfigIcons">
       <File>UI/HegemonyVictory_Icons.sql</File>
     </UpdateIcons>
@@ -55,8 +50,6 @@
       <File>Gameplay/HegemonyVictory_Rules.lua</File>
       <File>UI/EndGameMenu_HegemonyVictory.lua</File>
       <File>UI/Icons/HegemonyVictory26.dds</File>
-      <File>UI/Icons/HegemonyVictory64.dds</File>
-      <File>UI/Icons/HegemonyVictory80.dds</File>
     </ImportFiles>
     <UpdateIcons id="HegemonyVictory_Icons" criteria="HegemonyVictory_GatheringStorm">
       <File>UI/HegemonyVictory_Icons.sql</File>
@@ -101,7 +94,5 @@
     <File>UI/HegemonyVictory_ProgressText.sql</File>
     <File>UI/HegemonyVictory_WorldRankings.lua</File>
     <File>UI/Icons/HegemonyVictory26.dds</File>
-    <File>UI/Icons/HegemonyVictory64.dds</File>
-    <File>UI/Icons/HegemonyVictory80.dds</File>
   </Files>
 </Mod>
