@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Context Name="HegemonyVictory_Progress" Size="parent,parent">
+  <Box Size="parent,parent" Color="0,0,0,145" ConsumeMouse="1">
+    <Grid Anchor="C,C" Size="692,474" Style="WindowFrame">
+      <Image ID="VictoryIcon" Offset="24,13" Size="64,64" />
+      <Label Offset="98,25" Style="FontFlair30" Color="24,43,67,255" String="LOC_VICTORY_HEGEMONY_NAME" />
+      <Label ID="CivilizationName" Offset="99,60" Style="FontNormal16" Color="40,62,78,255" />
+      <Button ID="CloseButton" Anchor="R,T" Offset="5,5" Style="CloseButtonSmall" ToolTip="LOC_CLOSE" />
+
+      <Box Offset="26,93" Size="640,31" Color="39,56,75,255">
+        <Label Offset="12,0" Anchor="L,C" Style="FontNormalBold16" String="LOC_HEGEMONY_PROGRESS_METRIC" />
+        <Label Offset="224,0" Anchor="L,C" Size="120,25" Align="Center" Style="FontNormalBold16" String="LOC_HEGEMONY_PROGRESS_VALUE" />
+        <Label Offset="344,0" Anchor="L,C" Size="144,25" Align="Center" Style="FontNormalBold16" String="LOC_HEGEMONY_PROGRESS_TARGET" />
+        <Label Offset="488,0" Anchor="L,C" Size="152,25" Align="Center" Style="FontNormalBold16" String="LOC_HEGEMONY_PROGRESS_STATUS" />
+      </Box>
+      <Stack ID="MetricRows" Offset="26,124" StackGrowth="Down" />
+    </Grid>
+  </Box>
+
+  <Instance Name="HegemonyMetricRow">
+    <Box ID="Row" Size="640,32" Color="21,32,46,220" ConsumeMouseOver="1">
+      <Label ID="Metric" Offset="12,0" Anchor="L,C" Style="FontNormal16" />
+      <Label ID="Value" Offset="224,0" Anchor="L,C" Size="120,25" Align="Center" Style="FontNormal16" />
+      <Label ID="Target" Offset="344,0" Anchor="L,C" Size="144,25" Align="Center" Style="FontNormal16" />
+      <Label ID="Status" Offset="488,0" Anchor="L,C" Size="152,25" Align="Center" Style="FontNormal16" />
+    </Box>
+  </Instance>
+</Context>

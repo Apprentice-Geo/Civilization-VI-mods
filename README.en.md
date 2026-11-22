@@ -42,6 +42,20 @@ Under the Gathering Storm ruleset, all leaders of the same major civilization sh
 - Leaders added to the Gameplay DB by enabled DLC and community mods are included.
 - The Leader Pool exclusions are not read.
 
+### Hegemony Victory
+
+Folder: `HegemonyVictory`
+
+An independent victory for Gathering Storm games without teams. The option is checked by default in Advanced Setup and can be toggled separately from Score Victory. It supports single-player, online multiplayer, and hot seat. When enabled, the in-game Hegemony Victory panel tracks progress.
+
+The game checks at the start of each global turn and after each city conquest. Human and AI major civilizations win when they meet all the following requirements at once. Rivals include every other living major civilization, including unmet civilizations.
+
+- Score, Food per turn, and Production per turn must each strictly exceed the highest rival in that metric.
+- Science, Culture, Faith, and net Gold per turn, along with military strength, must each strictly exceed the corresponding rival total. Net Gold deducts maintenance and counts a rival's zero or negative net income as zero. Military strength uses current units and excludes the treasury.
+- Own more than half the completed world wonders still on the map and be suzerain of more than half the living city-states that have a suzerain. Each requirement is automatic when its corresponding world total is zero.
+
+The base game handles victory when only one major civilization remains.
+
 ### Movement Enhance
 
 ![Movement Enhance cover](covers/MovementEnhance.png)
