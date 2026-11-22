@@ -21,6 +21,8 @@ local function Render(metrics)
     end
     Controls.MetricRows:CalculateSize()
     Controls.MetricRows:ReprocessAnchoring()
+    ContextPtr:SetSizeX(Controls.MetricHeader:GetSizeX())
+    ContextPtr:SetSizeY(Controls.MetricRows:GetOffsetY() + Controls.MetricRows:GetSizeY())
 end
 
 LuaEvents.HegemonyVictory_RenderMetricTable.Add(Render)

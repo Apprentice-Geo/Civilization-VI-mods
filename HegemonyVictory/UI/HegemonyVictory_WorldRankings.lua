@@ -93,8 +93,8 @@ local function AttachMetricTable(parent, results)
     for index, metric in ipairs(METRICS) do
         metrics[index] = FormatMetric(metric, results[metric.key])
     end
-    LuaEvents.HegemonyVictory_RenderMetricTable(metrics)
     metricTable:SetHide(false)
+    LuaEvents.HegemonyVictory_RenderMetricTable(metrics)
     return METRIC_TABLE_TOP + metricTable:GetSizeY() + 12
 end
 
@@ -199,14 +199,25 @@ function PopulateOverallInstance(instance, victoryType, typeText)
     instance.VictoryPlayer:SetText("")
     if leader then
         local localPlayerID = Game.GetLocalPlayer()
-        instance.VictoryLeading:SetText(Locale.Lookup("LOC_HEGEMONY_PROGRESS_HIGHEST", leader.metCount, #METRICS))
-        PopulateHegemonyOverviewPlayer(instance, leader, 48)
-        for index, entry in ipairs(rankings) do
-            if index > 1 then
-                PopulateHegemonyOverviewPlayer(instance.OverallPlayersIM:GetInstance(), entry, 36)
+        if leader.playerID == localPlayerID then
+            instance.VictoryLeading:SetText(Locale.Lookup("LOC_WORLD_RANKINGS_FIRST_PLACE_YOU_SIMPLE"))
+        else
+            local localPlayer = Players[localPlayerID]
+            local leaderName = Locale.Lookup("LOC_WORLD_RANKING_UNMET_PLAYER")
+            if not localPlayer or localPlayer:GetDiplomacy():HasMet(leader.playerID) then
+                local civilization = GameInfo.Civilizations[PlayerConfigurations[leader.playerID]:GetCivilizationTypeID()]
+                leaderName = civilization and Locale.Lookup(civilization.Name) or GetCivNameAndIcon(leader.playerID)
             end
+            instance.VictoryLeading:SetText(Locale.Lookup("LOC_WORLD_RANKINGS_FIRST_PLACE_OTHER_SIMPLE", leaderName))
+        end
+
+        PopulateHegemonyOverviewPlayer(instance, leader, 48)
+        for index = 2, #rankings do
+            local entry = rankings[index]
+            PopulateHegemonyOverviewPlayer(instance.OverallPlayersIM:GetInstance(), entry, 36)
             if entry.playerID == localPlayerID then
-                instance.VictoryPlayer:SetText(Locale.Lookup("LOC_HEGEMONY_PROGRESS_LOCAL", entry.metCount, #METRICS))
+                local place = Locale.Lookup("LOC_WORLD_RANKINGS_" .. index .. "_PLACE")
+                instance.VictoryPlayer:SetText(Locale.Lookup("LOC_WORLD_RANKINGS_OTHER_PLACE_SIMPLE", place))
             end
         end
     else

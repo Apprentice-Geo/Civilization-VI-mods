@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Context Name="HegemonyVictory_MetricTable" Anchor="L,T" Size="440,268">
-  <Box Size="parent,28" Color="33,43,49,255">
+<Context Name="HegemonyVictory_MetricTable" Anchor="L,T">
+  <Box ID="MetricHeader" Size="440,28" Color="33,43,49,255">
     <Label Anchor="L,C" Align="L,C" Offset="10,0" Size="130,24" Style="FontNormalMedium14" String="LOC_HEGEMONY_PROGRESS_METRIC" />
     <Label Anchor="L,C" Align="L,C" Offset="144,0" Size="90,24" Style="FontNormalMedium14" String="LOC_HEGEMONY_PROGRESS_VALUE" />
     <Label Anchor="L,C" Align="L,C" Offset="240,0" Size="86,24" Style="FontNormalMedium14" String="LOC_HEGEMONY_PROGRESS_TARGET" />
