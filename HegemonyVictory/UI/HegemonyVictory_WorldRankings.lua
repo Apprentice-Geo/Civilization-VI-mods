@@ -10,7 +10,7 @@ local METRICS = {
     { key = "culture", label = "LOC_YIELD_CULTURE_NAME", help = "SUM" },
     { key = "faith", label = "LOC_YIELD_FAITH_NAME", help = "SUM" },
     { key = "gold", label = "LOC_HEGEMONY_PROGRESS_NET_GOLD", help = "GOLD" },
-    { key = "military", label = "LOC_HEGEMONY_PROGRESS_MILITARY", help = "MILITARY" },
+    { key = "military", label = "LOC_HEGEMONY_PROGRESS_MILITARY", help = "SUM" },
     { key = "wonders", label = "LOC_HEGEMONY_PROGRESS_WONDERS", help = "WONDERS" },
     { key = "suzerain", label = "LOC_HEGEMONY_PROGRESS_SUZERAIN", help = "SUZERAIN" },
 }
@@ -51,22 +51,22 @@ local function FormatMetCount(metCount)
     return Locale.Lookup("LOC_HEGEMONY_PROGRESS_MET_COUNT", metCount, #METRICS)
 end
 
+local function FormatMetricNumber(value)
+    local pattern = value % 1 == 0 and "#,##0" or "#,##0.0"
+    return Locale.ToNumber(value, pattern)
+end
+
 local function FormatMetric(metric, result)
-    local value = Locale.ToNumber(result.value, "#,##0.######")
-    local target = Locale.ToNumber(result.target, "#,##0.######")
+    local value = FormatMetricNumber(result.value)
+    local target = FormatMetricNumber(result.target)
     if result.total ~= nil then
-        value = Locale.Lookup("LOC_HEGEMONY_PROGRESS_COUNT", value, Locale.ToNumber(result.total, "#,##0.######"))
+        value = Locale.Lookup("LOC_HEGEMONY_PROGRESS_COUNT", value, FormatMetricNumber(result.total))
         target = "≥ " .. target
     else
         target = "> " .. target
     end
 
-    local status = "LOC_HEGEMONY_PROGRESS_NOT_MET"
-    if result.automatic then
-        status = "LOC_HEGEMONY_PROGRESS_AUTOMATIC"
-    elseif result.met then
-        status = "LOC_HEGEMONY_PROGRESS_MET"
-    end
+    local status = result.met and "LOC_HEGEMONY_PROGRESS_MET" or "LOC_HEGEMONY_PROGRESS_NOT_MET"
 
     return {
         label = Locale.Lookup(metric.label),
@@ -150,6 +150,16 @@ function IsCustomVictoryType(victoryType)
 end
 
 local PopulateExpansionTabs = PopulateTabs
+local AddExpansionTab = AddTab
+
+function AddTab(label, onClickCallback)
+    -- The stock tab builder passes the localized victory name for custom victories.
+    local victory = GameInfo.Victories[VICTORY_TYPE]
+    if victory and label == Locale.Lookup(victory.Name) then
+        label = Locale.Lookup("LOC_WORLD_RANKINGS_HEGEMONY_TAB")
+    end
+    return AddExpansionTab(label, onClickCallback)
+end
 
 function PopulateTabs()
     PopulateExpansionTabs()

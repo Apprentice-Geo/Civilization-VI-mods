@@ -127,7 +127,7 @@ function HegemonyVictory.Evaluate(snapshot, playerID)
         local target = automatic and 0 or math.floor(total / 2) + 1
         local met = automatic or player[key] >= target
         results[key] = {
-            value = player[key], target = target, met = met, total = total, automatic = automatic,
+            value = player[key], target = target, met = met, total = total,
         }
         allMet = allMet and met
     end

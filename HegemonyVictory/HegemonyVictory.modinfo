@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="e9ad8fff-b76a-41ea-8097-93412c68139d" version="4">
+<Mod id="e9ad8fff-b76a-41ea-8097-93412c68139d" version="5">
   <Properties>
     <Name>Hegemony Victory（霸权胜利）</Name>
     <Description>
-    风云变幻非组队对局的独立胜利方式，默认开启。人类和 AI 主要文明可在全局回合开始或攻占城市后，凭总分、产出、军力、世界奇观和城邦宗主权的优势获胜。食物和生产力分别须超过其他存活主要文明的合计。可在世界排名查看进度。
-    An independent victory for Gathering Storm games without teams, enabled by default. Human and AI major civilizations can win at the start of a game turn or after a city conquest by leading in score, yields, military strength, world wonders, and city-state suzerainty. Food and Production must each exceed the combined output of other living major civilizations. Track progress in World Rankings.
+    以世界第一的总分、压倒对手的产出与军力，以及世界奇观和城邦宗主权上的优势，取得霸权胜利。在世界排名中查看胜利进度。
+    Achieve a Hegemony Victory by taking the lead in score, surpassing your rivals in yields and military strength, and leading in world wonders and city-state suzerainty. Track your progress in World Rankings.
     </Description>
     <Teaser>
-    通过总分、产出、军力、世界奇观和城邦宗主权的优势取得霸权胜利，并在世界排名查看进度。
-    Earn a Hegemony Victory through dominance in score, yields, military strength, world wonders, and city-state suzerainty. Track progress in World Rankings.
+    凭借繁荣、军力与影响力取得霸权胜利。
+    Achieve a Hegemony Victory through prosperity, military strength, and influence.
     </Teaser>
     <Authors>ApprenTice</Authors>
     <Created>1795332371</Created>
