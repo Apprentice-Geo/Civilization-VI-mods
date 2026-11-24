@@ -3,7 +3,6 @@ include("HegemonyVictory_Rules")
 
 local VICTORY_TYPE = "VICTORY_HEGEMONY"
 local METRICS = {
-    { key = "score", label = "LOC_HEGEMONY_PROGRESS_SCORE", help = "MAXIMUM" },
     { key = "food", label = "LOC_YIELD_FOOD_NAME", help = "SUM" },
     { key = "production", label = "LOC_YIELD_PRODUCTION_NAME", help = "SUM" },
     { key = "science", label = "LOC_YIELD_SCIENCE_NAME", help = "SUM" },
@@ -57,21 +56,13 @@ local function FormatMetricNumber(value)
 end
 
 local function FormatMetric(metric, result)
-    local value = FormatMetricNumber(result.value)
-    local target = FormatMetricNumber(result.target)
-    if result.total ~= nil then
-        value = Locale.Lookup("LOC_HEGEMONY_PROGRESS_COUNT", value, FormatMetricNumber(result.total))
-        target = "≥ " .. target
-    else
-        target = "> " .. target
-    end
-
+    local operator = result.allowEqual and "≥ " or "> "
     local status = result.met and "LOC_HEGEMONY_PROGRESS_MET" or "LOC_HEGEMONY_PROGRESS_NOT_MET"
 
     return {
         label = Locale.Lookup(metric.label),
-        value = value,
-        target = target,
+        value = FormatMetricNumber(result.value),
+        target = operator .. FormatMetricNumber(result.target),
         status = Locale.Lookup(status),
         met = result.met,
         help = Locale.Lookup("LOC_HEGEMONY_PROGRESS_HELP_" .. metric.help),

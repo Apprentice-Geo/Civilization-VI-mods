@@ -54,9 +54,8 @@ Establish your hegemony through prosperity, military strength, and influence. He
 
 To achieve a Hegemony Victory, meet all of these conditions at once.
 
-- Take the sole lead in score.
 - Surpass the combined totals of all surviving rivals in Food, Production, Science, Culture, Faith, and net Gold per turn, as well as military strength. For net Gold, count only positive net income from rivals.
-- Own more than half of the completed world wonders still standing and become suzerain of more than half of the city-states with a suzerain.
+- Own at least as many completed world wonders still standing and be suzerain of at least as many surviving city-states as all surviving rivals combined.
 
 ### Movement Enhance
 

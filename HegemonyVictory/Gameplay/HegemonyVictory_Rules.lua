@@ -3,8 +3,7 @@ include("HegemonyVictory_Military")
 HegemonyVictory = {}
 
 local VICTORY_TYPE = "VICTORY_HEGEMONY"
-local OPPONENT_SUM = { "food", "production", "science", "culture", "faith", "gold", "military" }
-local MAJORITY = { "wonders", "suzerain" }
+local OPPONENT_SUM = { "food", "production", "science", "culture", "faith", "gold", "military", "wonders", "suzerain" }
 
 function HegemonyVictory.IsEnabled()
     if not Game.IsVictoryEnabled(VICTORY_TYPE) then
@@ -32,7 +31,6 @@ local function CountMajor(player)
 
     local treasury = player:GetTreasury()
     return {
-        score = player:GetScore(),
         food = food,
         production = production,
         science = player:GetTechs():GetScienceYield(),
@@ -46,11 +44,9 @@ local function CountMajor(player)
 end
 
 local function CountWorldWonders(snapshot)
-    -- Plot ownership also covers wonders in city-states and Free Cities.
     for index = 0, Map.GetPlotCount() - 1 do
         local plot = Map.GetPlotByIndex(index)
         if plot:IsWonderComplete() then
-            snapshot.wonders = snapshot.wonders + 1
             local owner = snapshot.majors[plot:GetOwner()]
             if owner then
                 owner.wonders = owner.wonders + 1
@@ -62,12 +58,9 @@ end
 local function CountSuzerains(snapshot)
     for _, cityState in ipairs(PlayerManager.GetAliveMinors()) do
         local suzerain = cityState:GetInfluence():GetSuzerain()
-        if suzerain >= 0 then
-            snapshot.suzerain = snapshot.suzerain + 1
-            local owner = snapshot.majors[suzerain]
-            if owner then
-                owner.suzerain = owner.suzerain + 1
-            end
+        local owner = snapshot.majors[suzerain]
+        if owner then
+            owner.suzerain = owner.suzerain + 1
         end
     end
 end
@@ -78,7 +71,7 @@ function HegemonyVictory.Capture()
         return nil
     end
 
-    local snapshot = { ids = {}, majors = {}, wonders = 0, suzerain = 0 }
+    local snapshot = { ids = {}, majors = {} }
     for _, player in ipairs(majors) do
         local id = player:GetID()
         snapshot.ids[#snapshot.ids + 1] = id
@@ -95,15 +88,8 @@ function HegemonyVictory.Evaluate(snapshot, playerID)
         return nil, false
     end
 
-    local scoreTarget = -math.huge
-    for _, id in ipairs(snapshot.ids) do
-        if id ~= playerID then
-            scoreTarget = math.max(scoreTarget, snapshot.majors[id].score)
-        end
-    end
-
-    local allMet = player.score > scoreTarget
-    local results = { score = { value = player.score, target = scoreTarget, met = allMet } }
+    local allMet = true
+    local results = {}
 
     for _, key in ipairs(OPPONENT_SUM) do
         local target = 0
@@ -116,19 +102,10 @@ function HegemonyVictory.Evaluate(snapshot, playerID)
                 target = target + value
             end
         end
-        local met = player[key] > target
-        results[key] = { value = player[key], target = target, met = met }
-        allMet = allMet and met
-    end
-
-    for _, key in ipairs(MAJORITY) do
-        local total = snapshot[key]
-        local automatic = total == 0
-        local target = automatic and 0 or math.floor(total / 2) + 1
-        local met = automatic or player[key] >= target
-        results[key] = {
-            value = player[key], target = target, met = met, total = total,
-        }
+        local value = player[key]
+        local allowEqual = key == "wonders" or key == "suzerain"
+        local met = (allowEqual and value >= target) or value > target
+        results[key] = { value = value, target = target, met = met, allowEqual = allowEqual }
         allMet = allMet and met
     end
 

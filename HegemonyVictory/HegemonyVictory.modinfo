@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="e9ad8fff-b76a-41ea-8097-93412c68139d" version="7">
+<Mod id="e9ad8fff-b76a-41ea-8097-93412c68139d" version="8">
   <Properties>
     <Name>Hegemony Victory（霸权胜利）</Name>
     <Description>
-    以世界第一的总分、压倒对手的产出与军力，以及世界奇观和城邦宗主权上的优势，取得霸权胜利。在世界排名中查看胜利进度。
-    Achieve a Hegemony Victory by taking the lead in score, surpassing your rivals in yields and military strength, and leading in world wonders and city-state suzerainty. Track your progress in World Rankings.
+    产出与军力须超过存活对手合计，世界奇观与城邦宗主权须达到或超过存活对手合计。在世界排名中查看霸权胜利进度。
+    Surpass your surviving rivals’ combined yields and military strength, and match or exceed their totals in world wonders and city-state suzerainty. Track your Hegemony Victory progress in World Rankings.
     </Description>
     <Teaser>
     凭借繁荣、军力与影响力取得霸权胜利。
