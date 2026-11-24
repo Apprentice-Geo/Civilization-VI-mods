@@ -6,6 +6,8 @@ This repository collects the [Civilization VI](https://civilization.2k.com/civ-v
 
 The local mod folder is usually located at `%USERNAME%\Documents\My Games\Sid Meier's Civilization VI\Mods`.
 
+Maintainers can import, inspect, and publish items with the [Workshop CLI](tools/workshop/README.md).
+
 ## Mod Descriptions
 
 ### Additional Policy Slots

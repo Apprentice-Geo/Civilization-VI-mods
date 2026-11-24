@@ -10,6 +10,8 @@
 
 本地 mod 文件夹一般为 `%USERNAME%\Documents\My Games\Sid Meier's Civilization VI\Mods` 。
 
+维护者可使用[创意工坊发布工具](tools/workshop/README.md)导入、核对和发布条目。
+
 ## 各 mod 介绍
 
 ### 额外政策槽位
