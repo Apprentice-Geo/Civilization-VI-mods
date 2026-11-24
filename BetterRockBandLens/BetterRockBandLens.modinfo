@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="23cb221e-9471-4b86-a58d-cb85d2cc830b" version="2">
+<Mod id="23cb221e-9471-4b86-a58d-cb85d2cc830b" version="3">
   <Properties>
     <Name>更好的摇滚乐队滤镜/Better Rock Band Lens</Name>
     <Description>
@@ -14,7 +14,7 @@
     Better Rock Band Lens
     </Teaser>
     <Authors>BAZINGA1990, ApprenTice</Authors>
-    <AffectsSavedGames>1</AffectsSavedGames>
+    <AffectsSavedGames>0</AffectsSavedGames>
     <SupportsMultiplayer>1</SupportsMultiplayer>
     <SupportsHotSeat>1</SupportsHotSeat>
     <CompatibleVersions>2.0</CompatibleVersions>
