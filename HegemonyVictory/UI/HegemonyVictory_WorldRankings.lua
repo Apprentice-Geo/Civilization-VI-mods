@@ -1,4 +1,9 @@
-include("WorldRankings_Expansion2")
+local isGatheringStorm = GameConfiguration.GetRuleSet() == "RULESET_EXPANSION_2"
+if isGatheringStorm then
+    include("WorldRankings_Expansion2")
+else
+    include("WorldRankings")
+end
 include("HegemonyVictory_Rules")
 
 local VICTORY_TYPE = "VICTORY_HEGEMONY"
@@ -131,17 +136,17 @@ local function PopulateHegemonyOverviewPlayer(instance, entry, iconSize)
     }, iconSize)
 end
 
-local IsExpansionCustomVictoryType = IsCustomVictoryType
+local StockIsCustomVictoryType = IsCustomVictoryType
 
 function IsCustomVictoryType(victoryType)
     if victoryType == VICTORY_TYPE then
         return HegemonyVictory.IsEnabled()
     end
-    return IsExpansionCustomVictoryType(victoryType)
+    return StockIsCustomVictoryType(victoryType)
 end
 
-local PopulateExpansionTabs = PopulateTabs
-local AddExpansionTab = AddTab
+local StockPopulateTabs = PopulateTabs
+local StockAddTab = AddTab
 
 function AddTab(label, onClickCallback)
     -- The stock tab builder passes the localized victory name for custom victories.
@@ -149,23 +154,23 @@ function AddTab(label, onClickCallback)
     if victory and label == Locale.Lookup(victory.Name) then
         label = Locale.Lookup("LOC_WORLD_RANKINGS_HEGEMONY_TAB")
     end
-    return AddExpansionTab(label, onClickCallback)
+    return StockAddTab(label, onClickCallback)
 end
 
 function PopulateTabs()
-    PopulateExpansionTabs()
-    if HegemonyVictory.IsEnabled() and #m_ExtraTabs > 0 then
+    StockPopulateTabs()
+    if isGatheringStorm and HegemonyVictory.IsEnabled() and #m_ExtraTabs > 0 then
         -- Gathering Storm builds the overflow menu but hides its button.
         CloseExtraTabs()
         Controls.ExpandExtraTabs:SetHide(false)
     end
 end
 
-local PopulateExpansionOverallInstance = PopulateOverallInstance
+local StockPopulateOverallInstance = PopulateOverallInstance
 
 function PopulateOverallInstance(instance, victoryType, typeText)
     if victoryType ~= VICTORY_TYPE then
-        PopulateExpansionOverallInstance(instance, victoryType, typeText)
+        StockPopulateOverallInstance(instance, victoryType, typeText)
         return
     end
 
@@ -219,24 +224,24 @@ function PopulateOverallInstance(instance, victoryType, typeText)
     instance.ButtonBG:SetSizeY(math.max(130, 101 + instance.PlayerStack:GetSizeY()))
 end
 
-local ViewExpansionGeneric = ViewGeneric
+local StockViewGeneric = ViewGeneric
 
 function ViewGeneric(victoryType)
     if victoryType == VICTORY_TYPE then
         ViewHegemony()
     else
-        ViewExpansionGeneric(victoryType)
+        StockViewGeneric(victoryType)
     end
 end
 
-local ResetExpansionState = ResetState
+local StockResetState = ResetState
 
 function ResetState(view)
     if detailsActive and view ~= ViewHegemony then
         detailRows:ResetInstances()
     end
     detailsActive = view == ViewHegemony
-    ResetExpansionState(view)
+    StockResetState(view)
 end
 
 local function OnGameCoreEventPublishComplete()
@@ -248,11 +253,11 @@ local function OnGameCoreEventPublishComplete()
     end
 end
 
-local OnExpansionShutdown = OnShutdown
+local StockOnShutdown = OnShutdown
 
 function OnShutdown()
     Events.GameCoreEventPublishComplete.Remove(OnGameCoreEventPublishComplete)
-    OnExpansionShutdown()
+    StockOnShutdown()
 end
 
 Events.GameCoreEventPublishComplete.Add(OnGameCoreEventPublishComplete)

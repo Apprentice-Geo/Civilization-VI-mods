@@ -39,7 +39,7 @@ Human combat units gain a 99 advantage when combating barbarian units.
 
 Folder: `GreatSynthesizer`
 
-Under the Gathering Storm ruleset, all leaders of the same major civilization share the non-internal leader traits of the other leaders of that civilization.
+All leaders of the same major civilization share the non-internal leader traits of the other leaders of that civilization.
 
 - Leaders added to the Gameplay DB by enabled DLC and community mods are included.
 - The Leader Pool exclusions are not read.
@@ -50,7 +50,7 @@ Under the Gathering Storm ruleset, all leaders of the same major civilization sh
 
 Folder: `HegemonyVictory`
 
-Establish your hegemony through prosperity, military strength, and influence. Hegemony Victory is enabled by default and has its own option in Advanced Setup. When enabled, its World Rankings overview card shows who is leading and displays your rank if you are behind. Open the Hegemony tab for progress on each requirement.
+Hegemony Victory is available in games without teams. It is enabled by default and has its own option in Advanced Setup. When enabled, its World Rankings overview card shows who is leading and displays your rank if you are behind. Open the Hegemony tab for progress on each requirement.
 
 To achieve a Hegemony Victory, meet all of these conditions at once.
 

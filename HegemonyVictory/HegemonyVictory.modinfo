@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="e9ad8fff-b76a-41ea-8097-93412c68139d" version="8">
+<Mod id="e9ad8fff-b76a-41ea-8097-93412c68139d" version="9">
   <Properties>
     <Name>Hegemony Victory（霸权胜利）</Name>
     <Description>
-    产出与军力须超过存活对手合计，世界奇观与城邦宗主权须达到或超过存活对手合计。在世界排名中查看霸权胜利进度。
-    Surpass your surviving rivals’ combined yields and military strength, and match or exceed their totals in world wonders and city-state suzerainty. Track your Hegemony Victory progress in World Rankings.
+    适用于非组队对局。产出与军力须超过存活对手合计，世界奇观与城邦宗主权须达到或超过存活对手合计。在世界排名中查看霸权胜利进度。
+    Available in games without teams. Surpass your surviving rivals’ combined yields and military strength, and match or exceed their totals in world wonders and city-state suzerainty. Track your Hegemony Victory progress in World Rankings.
     </Description>
     <Teaser>
     凭借繁荣、军力与影响力取得霸权胜利。
@@ -20,8 +20,8 @@
   </Properties>
 
   <ActionCriteria>
-    <Criteria id="HegemonyVictory_GatheringStorm">
-      <RuleSetInUse>RULESET_EXPANSION_2</RuleSetInUse>
+    <Criteria id="HegemonyVictory_Rulesets">
+      <RuleSetInUse>RULESET_STANDARD,RULESET_EXPANSION_1,RULESET_EXPANSION_2</RuleSetInUse>
     </Criteria>
   </ActionCriteria>
 
@@ -38,27 +38,27 @@
   </FrontEndActions>
 
   <InGameActions>
-    <UpdateDatabase id="HegemonyVictory_Database" criteria="HegemonyVictory_GatheringStorm">
+    <UpdateDatabase id="HegemonyVictory_Database" criteria="HegemonyVictory_Rulesets">
       <File>Gameplay/HegemonyVictory_Victory.sql</File>
     </UpdateDatabase>
-    <UpdateText id="HegemonyVictory_Text" criteria="HegemonyVictory_GatheringStorm">
+    <UpdateText id="HegemonyVictory_Text" criteria="HegemonyVictory_Rulesets">
       <File>Gameplay/HegemonyVictory_Text.sql</File>
       <File>UI/HegemonyVictory_ProgressText.sql</File>
     </UpdateText>
-    <ImportFiles id="HegemonyVictory_Files" criteria="HegemonyVictory_GatheringStorm">
+    <ImportFiles id="HegemonyVictory_Files" criteria="HegemonyVictory_Rulesets">
       <File>Gameplay/HegemonyVictory_Military.lua</File>
       <File>Gameplay/HegemonyVictory_Rules.lua</File>
       <File>UI/EndGameMenu_HegemonyVictory.lua</File>
       <File>UI/HegemonyVictory_MetricTable.lua</File>
       <File>UI/HegemonyVictory_MetricTable.xml</File>
     </ImportFiles>
-    <UpdateIcons id="HegemonyVictory_Icons" criteria="HegemonyVictory_GatheringStorm">
+    <UpdateIcons id="HegemonyVictory_Icons" criteria="HegemonyVictory_Rulesets">
       <File>UI/HegemonyVictory_Icons.sql</File>
     </UpdateIcons>
-    <AddGameplayScripts id="HegemonyVictory_Gameplay" criteria="HegemonyVictory_GatheringStorm">
+    <AddGameplayScripts id="HegemonyVictory_Gameplay" criteria="HegemonyVictory_Rulesets">
       <File>Gameplay/HegemonyVictory_Gameplay.lua</File>
     </AddGameplayScripts>
-    <ReplaceUIScript id="HegemonyVictory_WorldRankings" criteria="HegemonyVictory_GatheringStorm">
+    <ReplaceUIScript id="HegemonyVictory_WorldRankings" criteria="HegemonyVictory_Rulesets">
       <Properties>
         <LoadOrder>10</LoadOrder>
         <LuaContext>WorldRankings</LuaContext>
