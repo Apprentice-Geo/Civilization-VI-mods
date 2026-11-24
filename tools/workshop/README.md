@@ -16,6 +16,17 @@ cargo run --locked --manifest-path tools/workshop/Cargo.toml -- publish Barbaria
 - `status` 读取绑定条目的当前配置、封面 URL 和 `.modinfo` 的 `ModId`、`ModVersion` 标签。
 - `publish` 提交英文文案、内容、封面、可见性、标签和可选更新说明，随后提交简体中文文案并同步依赖。首次分配的工坊 ID 会立即写入配置。
 
+## 在 Windows 上直接运行
+
+从仓库根目录运行以下 PowerShell 命令。构建脚本会把匹配的 Steamworks DLL 放到可执行文件同一目录，并输出可执行文件的路径。
+
+```powershell
+$workshopExe = & ./tools/workshop/build.ps1
+& $workshopExe --help
+```
+
+复制可执行文件时，把同目录的 Steamworks DLL 一起复制。
+
 ## 发布配置
 
 将 `workshop.json` 放在 mod 目录中。首次发布时可参考以下 `BarbarianWard` 配置。已有条目先用 `import` 绑定。中英文标题和完整描述沿用 `.modinfo` 中对应语言的 `Name` 和 `Description` 表述。根据 mod 的实际类型、分类和依赖调整其余字段。
