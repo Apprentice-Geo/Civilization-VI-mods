@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mod id="5b1fdc14-91e7-48b2-a078-ed3feefa909c" version="1">
+  <Properties>
+    <Name>Stormproof Cities（安如磐石）</Name>
+    <Description>
+    仅限风云变幻。人类主要文明拥有的每座城市都自动获得梁的「加固材料」效果。环境效应无法损坏这些城市的改良设施、建筑与区域，无需派驻总督。
+    Gathering Storm only. Every city owned by a human major civilization automatically gains Liang’s Reinforced Materials effect. Its improvements, buildings, and districts are protected from environmental damage without an assigned governor.
+    </Description>
+    <Teaser>
+    环境效应无法损坏人类主要文明城市中的改良设施、建筑与区域。
+    Environmental effects cannot damage improvements, buildings, or districts in cities owned by human major civilizations.
+    </Teaser>
+    <Authors>ApprenTice</Authors>
+    <Created>1795622709</Created>
+    <AffectsSavedGames>1</AffectsSavedGames>
+    <CompatibleVersions>2.0</CompatibleVersions>
+    <SupportsSinglePlayer>1</SupportsSinglePlayer>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <SupportsHotSeat>1</SupportsHotSeat>
+  </Properties>
+
+  <ActionCriteria>
+    <Criteria id="StormproofCities_GatheringStorm">
+      <RuleSetInUse>RULESET_EXPANSION_2</RuleSetInUse>
+    </Criteria>
+  </ActionCriteria>
+
+  <InGameActions>
+    <UpdateDatabase id="StormproofCities_Database" criteria="StormproofCities_GatheringStorm">
+      <File>StormproofCities.sql</File>
+    </UpdateDatabase>
+  </InGameActions>
+
+  <Files>
+    <File>StormproofCities.sql</File>
+  </Files>
+</Mod>
