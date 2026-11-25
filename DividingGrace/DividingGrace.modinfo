@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="864ad063-f515-40ad-9329-db8cbb118bc7" version="1.1">
+<Mod id="864ad063-f515-40ad-9329-db8cbb118bc7" version="1.2">
   <Properties>
     <Name>Dividing Grace（推恩令）</Name>
     <Description>
-    仅限风云变幻。人类主要文明可生产「推恩令」项目。完工时，若本城可被夷平且有其他已保留的城市可接收人口，则撤销本城，将人口均分给本文明其他已保留的城市。余数优先分给人口较少的城市。若项目无法执行，原城保留，并在开始下一项生产时收回一半项目成本（向下取整）。
-    Gathering Storm only. Human major civilizations can run the Dividing Grace project. On completion, if the city can be razed and another kept city can receive its population, the city is removed and its population is divided equally among the civilization’s other kept cities. Remainders go to the least populous cities first. If the project cannot take effect, the city remains and recovers half of the project cost, rounded down, when it starts its next production.
+    仅限风云变幻。人类主要文明可生产「推恩令」项目。基础消耗为 50 点生产力，实际消耗随游戏进度增长。完工时，若本城可被夷平且有其他已保留的城市可接收人口，则撤销本城，将人口均分给本文明其他已保留的城市。余数优先分给人口较少的城市。若项目无法执行，原城保留，并在开始下一项生产时收回一半项目成本（向下取整）。
+    Gathering Storm only. Human major civilizations can run the Dividing Grace project. Its base cost is 50 Production and increases with game progress. On completion, if the city can be razed and another kept city can receive its population, the city is removed and its population is divided equally among the civilization’s other kept cities. Remainders go to the least populous cities first. If the project cannot take effect, the city remains and recovers half of the project cost, rounded down, when it starts its next production.
     </Description>
     <Teaser>
     人类主要文明可用城市项目撤销符合条件的城市，并将人口分给其他城市。

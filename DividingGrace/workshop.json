@@ -1,0 +1,22 @@
+{
+  "workshop_id": 3843561777,
+  "cover": "../covers/DividingGrace.png",
+  "visibility": "public",
+  "type": "Mod",
+  "tags": [
+    "Gameplay",
+    "Gathering Storm"
+  ],
+  "english": {
+    "title": "Dividing Grace",
+    "description": "Requires the Gathering Storm ruleset. Human major civilizations can run the Dividing Grace project. Its base cost is 50 Production and increases with game progress. On completion, if the city can be razed and another kept city can receive its population, the city is removed and its population is divided equally among the civilization’s other kept cities. Remainders go to the least populous cities first. If the project cannot take effect, the city remains and recovers half of the project cost, rounded down, when it starts its next production."
+  },
+  "schinese": {
+    "title": "推恩令",
+    "description": "仅适用于风云变幻规则集。人类主要文明可生产「推恩令」项目。基础消耗为 50 点生产力，实际消耗随游戏进度增长。完工时，若本城可被夷平且有其他已保留的城市可接收人口，则撤销本城，将人口均分给本文明其他已保留的城市。余数优先分给人口较少的城市。若项目无法执行，原城保留，并在开始下一项生产时收回一半项目成本（向下取整）。"
+  },
+  "required_items": [],
+  "required_dlc": [
+    947510
+  ]
+}

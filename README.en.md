@@ -97,7 +97,7 @@ This mod applies to human and AI major civilizations and city-states under the G
 
 Folder: `DividingGrace`
 
-Under the Gathering Storm ruleset, human major civilizations can select the Dividing Grace project in the city production queue.
+Under the Gathering Storm ruleset, human major civilizations can select the Dividing Grace project in the city production queue. Its base cost is 50 Production and increases with game progress.
 
 - On completion, if the city can be razed and another kept city can receive its population, the city is removed and its population is divided equally among the civilization’s other kept cities. Remainders go to the least populous cities first.
 - If the project cannot take effect, the city remains and recovers half of the project cost, rounded down, when it starts its next production.
