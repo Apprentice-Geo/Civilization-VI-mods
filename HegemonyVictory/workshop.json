@@ -1,0 +1,24 @@
+{
+  "workshop_id": 3844238879,
+  "cover": "../covers/HegemonyVictory.png",
+  "visibility": "public",
+  "type": "Mod",
+  "tags": [
+    "Gameplay",
+    "UI",
+    "Base Game",
+    "Rise and Fall",
+    "Gathering Storm",
+    "Game Setup"
+  ],
+  "english": {
+    "title": "Hegemony Victory",
+    "description": "Hegemony Victory is available in games without teams. It is enabled by default and has its own option in Advanced Setup.\nTo achieve a Hegemony Victory, meet both requirements.\n• Surpass the combined totals of all surviving rivals in Food, Production, Science, Culture, Faith, and net Gold per turn, as well as military strength. For net Gold, count only positive net income from rivals.\n• Own at least as many completed world wonders still standing and be suzerain of at least as many surviving city-states as all surviving rivals combined.\nThe World Rankings overview shows the leading civilization. In the Hegemony tab, hover over any of your metrics to see its victory requirement."
+  },
+  "schinese": {
+    "title": "霸权胜利",
+    "description": "霸权胜利适用于非组队对局，在高级设置中默认开启，可单独切换。\n要取得霸权胜利，您的文明必须同时满足以下条件。\n• 每回合的食物、生产力、科技、文化、信仰和净金币，以及军力，分别超过所有存活对手的相应合计。比较净金币时，只计入对手的正净收入。\n• 已完工且仍存在的世界奇观数量，以及您担任宗主的存活城邦数量，均不少于所有存活对手的相应合计。\n世界排名「总体」显示当前领先的文明。在「霸权」页签中，将鼠标悬停在本方的任一指标上，可查看该项的达标条件。"
+  },
+  "required_items": [],
+  "required_dlc": []
+}

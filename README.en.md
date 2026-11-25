@@ -50,7 +50,7 @@ All leaders of the same major civilization share the non-internal leader traits 
 
 Folder: `HegemonyVictory`
 
-Hegemony Victory is available in games without teams. It is enabled by default and has its own option in Advanced Setup. When enabled, its World Rankings overview card shows who is leading and displays your rank if you are behind. Open the Hegemony tab for progress on each requirement.
+Hegemony Victory is available in games without teams. It is enabled by default and has its own option in Advanced Setup. When enabled, its World Rankings overview card shows the leading civilization. In the Hegemony tab, hover over any of your metrics to see its victory requirement.
 
 To achieve a Hegemony Victory, meet all of these conditions at once.
 

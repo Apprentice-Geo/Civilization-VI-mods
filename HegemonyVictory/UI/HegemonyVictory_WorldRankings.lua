@@ -8,13 +8,13 @@ include("HegemonyVictory_Rules")
 
 local VICTORY_TYPE = "VICTORY_HEGEMONY"
 local METRICS = {
-    { key = "food", label = "LOC_YIELD_FOOD_NAME", help = "SUM" },
-    { key = "production", label = "LOC_YIELD_PRODUCTION_NAME", help = "SUM" },
-    { key = "science", label = "LOC_YIELD_SCIENCE_NAME", help = "SUM" },
-    { key = "culture", label = "LOC_YIELD_CULTURE_NAME", help = "SUM" },
-    { key = "faith", label = "LOC_YIELD_FAITH_NAME", help = "SUM" },
+    { key = "food", label = "LOC_YIELD_FOOD_NAME", help = "YIELD" },
+    { key = "production", label = "LOC_YIELD_PRODUCTION_NAME", help = "YIELD" },
+    { key = "science", label = "LOC_YIELD_SCIENCE_NAME", help = "YIELD" },
+    { key = "culture", label = "LOC_YIELD_CULTURE_NAME", help = "YIELD" },
+    { key = "faith", label = "LOC_YIELD_FAITH_NAME", help = "YIELD" },
     { key = "gold", label = "LOC_HEGEMONY_PROGRESS_NET_GOLD", help = "GOLD" },
-    { key = "military", label = "LOC_HEGEMONY_PROGRESS_MILITARY", help = "SUM" },
+    { key = "military", label = "LOC_HEGEMONY_PROGRESS_MILITARY", help = "MILITARY" },
     { key = "wonders", label = "LOC_HEGEMONY_PROGRESS_WONDERS", help = "WONDERS" },
     { key = "suzerain", label = "LOC_HEGEMONY_PROGRESS_SUZERAIN", help = "SUZERAIN" },
 }
@@ -64,13 +64,14 @@ local function FormatMetric(metric, result)
     local operator = result.allowEqual and "≥ " or "> "
     local status = result.met and "LOC_HEGEMONY_PROGRESS_MET" or "LOC_HEGEMONY_PROGRESS_NOT_MET"
 
+    local label = Locale.Lookup(metric.label)
     return {
-        label = Locale.Lookup(metric.label),
+        label = label,
         value = FormatMetricNumber(result.value),
         target = operator .. FormatMetricNumber(result.target),
         status = Locale.Lookup(status),
         met = result.met,
-        help = Locale.Lookup("LOC_HEGEMONY_PROGRESS_HELP_" .. metric.help),
+        help = Locale.Lookup("LOC_HEGEMONY_PROGRESS_HELP_" .. metric.help, label),
     }
 end
 
@@ -211,10 +212,6 @@ function PopulateOverallInstance(instance, victoryType, typeText)
         for index = 2, #rankings do
             local entry = rankings[index]
             PopulateHegemonyOverviewPlayer(instance.OverallPlayersIM:GetInstance(), entry, 36)
-            if entry.playerID == localPlayerID then
-                local place = Locale.Lookup("LOC_WORLD_RANKINGS_" .. index .. "_PLACE")
-                instance.VictoryPlayer:SetText(Locale.Lookup("LOC_WORLD_RANKINGS_OTHER_PLACE_SIMPLE", place))
-            end
         end
     else
         instance.VictoryLeading:SetText(Locale.Lookup("LOC_WORLD_RANKINGS_VICTORY_DISABLED"))
