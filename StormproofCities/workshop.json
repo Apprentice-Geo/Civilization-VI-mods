@@ -9,11 +9,11 @@
   ],
   "english": {
     "title": "Stormproof Cities",
-    "description": "Gathering Storm only. Every city owned by a human major civilization automatically gains Liang’s Reinforced Materials effect. Its improvements, buildings, and districts are protected from environmental damage without an assigned governor."
+    "description": "Gathering Storm only. All governors, including those of AI players, start with Liang’s Reinforced Materials effect. Once a governor is established in a city, environmental effects cannot damage that city’s improvements, buildings, or districts."
   },
   "schinese": {
     "title": "安如磐石",
-    "description": "仅限风云变幻。人类主要文明拥有的每座城市都自动获得梁的「加固材料」效果。环境效应无法损坏这些城市的改良设施、建筑与区域，无需派驻总督。"
+    "description": "仅限风云变幻。人类和 AI 玩家的所有总督初始都拥有梁的「加固材料」效果。总督就职后，环境效应无法损坏该城市的改良设施、建筑与区域。"
   },
   "required_items": [],
   "required_dlc": [

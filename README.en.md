@@ -136,7 +136,7 @@ This mod provides a global sight range bonus to human player units. All units co
 
 Folder: `StormproofCities`
 
-Under the Gathering Storm ruleset, every city owned by a human major civilization automatically gains Liang’s Reinforced Materials effect. Environmental effects cannot damage its improvements, buildings, or districts, even without an assigned governor.
+Gathering Storm only. All governors, including those of AI players, start with Liang’s Reinforced Materials effect. Once a governor is established in a city, environmental effects cannot damage that city’s improvements, buildings, or districts.
 
 ### Better Rock Band Lens
 
