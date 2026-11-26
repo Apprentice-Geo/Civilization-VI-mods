@@ -11,11 +11,11 @@
   ],
   "english": {
     "title": "Raze Any City",
-    "description": "Human and AI players can raze any city they capture, including original capitals."
+    "description": "Human and AI players can raze any city they capture, including original capitals.\nYou can also enable the mod before loading an existing save. The rule applies to future captures."
   },
   "schinese": {
     "title": "夷平任意城市",
-    "description": "人类玩家和 AI 都可以夷平任意攻占的城市，包括原始首都。"
+    "description": "人类玩家和 AI 都可以夷平任意攻占的城市，包括原始首都。\n读取旧档前也可以启用本 mod。之后攻占的城市适用此规则。"
   },
   "required_items": [],
   "required_dlc": []

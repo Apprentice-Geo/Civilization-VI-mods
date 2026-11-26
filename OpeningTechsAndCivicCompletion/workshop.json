@@ -13,11 +13,11 @@
   ],
   "english": {
     "title": "Opening Techs and Civic Completion",
-    "description": "In Ancient Era starts, when a human major player's first turn starts after entering the game, the following opening technologies and civic are immediately completed.\nTechnologies: Pottery, Animal Husbandry, Mining, Sailing, Astrology.\nCivic: Code of Laws.\nThis effect triggers only once and does not affect AI players.\nThis effect does not trigger in non-Ancient Era starts."
+    "description": "This mod applies to games that began in the Ancient Era. At the start of their first turn with the mod enabled, human players who control major civilizations complete any of the technologies and civics below that they haven't already researched.\nTechnologies: Pottery, Animal Husbandry, Mining, Sailing, Astrology.\nCivic: Code of Laws.\nThe effect triggers once per eligible player. You can also enable the mod before loading an existing save."
   },
   "schinese": {
     "title": "开局科技与市政完成",
-    "description": "远古时代开局时，人类主要玩家进入游戏后的首个回合开始时，立即完成以下开局科技与市政。\n科技：制陶术、畜牧业、采矿、航海术、占星术。\n市政：法典。\n该效果只会触发一次，不会影响 AI 玩家。\n非远古时代开局时，该效果不会触发。"
+    "description": "适用于从远古时代开始的对局。启用本 mod 后，每位人类玩家（限主要文明）在自己的首个回合开始时，补完下列尚未完成的科技和市政。\n科技：制陶术、畜牧业、采矿、航海术、占星术。\n市政：法典。\n每位符合条件的玩家只会获得一次补完效果。读取旧档前也可以启用本 mod。"
   },
   "required_items": [],
   "required_dlc": []

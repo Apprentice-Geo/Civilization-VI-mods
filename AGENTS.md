@@ -38,7 +38,7 @@
 | `<Teaser>` | 文本或本地化键 | 在附加内容界面显示的简短摘要。 |
 | `<Authors>` | 文本 | 作者名称。 |
 | `<Created>` | Unix 时间戳（秒） | mod 的创建时间。 |
-| `<AffectsSavedGames>` | `0`：不标记为存档依赖；`1`：标记为存档依赖 | 表示存档是否需要记录并依赖该 mod；设为 `0` 不代表运行中的存档一定可以安全增删该 mod。 |
+| `<AffectsSavedGames>` | `0`：不记录为存档依赖；`1`：记录为存档依赖 | 要让未使用过该 mod 的旧档按「附加内容」的启用状态加载它，应设为 `0`。 |
 | `<CompatibleVersions>` | `1.2`、`2.0` 或 `1.2,2.0` | 声明兼容的 Civ VI mod 系统版本；`1.2` 常用于较早版本，`2.0` 用于风云变幻更新后的版本。该字段不用于限制规则集。 |
 | `<EnabledByDefault>` | `0`：默认禁用；`1`：默认启用 | mod 首次被发现时的默认启用状态。 |
 | `<SupportsSinglePlayer>` | `0`：不支持；`1`：支持 | 是否支持单人游戏。 |
@@ -79,6 +79,10 @@
 - `<File>` 使用相对于 mod 根目录的路径。需要发布的文件必须列入 `<Files>`，并放入负责加载它的动作中。
 - 动作的 `<Properties><LoadOrder>` 默认为 `0`。仅在确有覆盖或依赖顺序时设置；数值越大越晚执行，优先使用依赖或引用表达跨 mod 顺序。
 - 规则集限制使用 `ActionCriteria` / `RuleSetInUse`，不要用 `CompatibleVersions` 代替。
+
+`AffectsSavedGames` 的界面标签是「影响已保存游戏」，指存档是否依赖该 mod。设为 `1` 时，游戏按照存档记录的依赖加载 mod。若旧档没有这项记录，只在「附加内容」里启用通常无法让它生效。设为 `0` 的 mod 可以按当前启用状态随旧档加载，例如「更好的摇滚乐队滤镜」。修改此字段后，旧档已有的依赖记录仍会保留。
+
+设为 `0` 前，确认效果能在对局中途启用。修改原版参数时，检查读档是否会重新读取参数。新增修正器时，检查引擎会不会为旧档里的玩家、城市或已完成的市政补挂修正器。向 `Types` 注册单位能力、项目等新类型时，检查移除 mod 后存档能否处理这些类型及其状态。参考 [LeeS 的 Civ VI Modding Guide](https://forums.civfanatics.com/threads/lees-civilization-6-modding-guide.644687/)、[LeeS 的读档机制说明](https://forums.civfanatics.com/threads/quick-modding-questions-thread.637803/page-59#post-16045076)和[引擎字段参考](https://cru121.github.io/civ6-gamecore-reference/exe/modinfo.html)。
 
 ## 修改原则
 

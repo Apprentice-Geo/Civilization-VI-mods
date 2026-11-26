@@ -71,12 +71,12 @@ This mod grants a global movement bonus to all units controlled by human players
 
 Folder: `OpeningTechsAndCivicCompletion`
 
-In Ancient Era starts, when a human major player's first turn starts after entering the game, the following opening technologies and civic are immediately completed:
+This mod applies to games that began in the Ancient Era. At the start of their first turn with the mod enabled, human players who control major civilizations complete any of the technologies and civics below that they haven't already researched.
 
 - Technologies: Pottery, Animal Husbandry, Mining, Sailing, Astrology.
 - Civic: Code of Laws.
 
-This effect triggers only once and does not affect AI players. This effect does not trigger in non-Ancient Era starts.
+The effect triggers once per eligible player. You can also enable the mod before loading an existing save.
 
 ### People's War
 
@@ -119,6 +119,8 @@ This effect applies only to human major players. AI players do not receive these
 Folder: `RazeAnyCity`
 
 Human and AI players can raze any city they capture, including original capitals.
+
+You can also enable the mod before loading an existing save. The rule applies to future captures.
 
 ### Sight Enhance
 

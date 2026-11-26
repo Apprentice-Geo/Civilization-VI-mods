@@ -58,11 +58,11 @@ local function CompleteTechs(player)
     for _, techType in ipairs(TECHS_TO_COMPLETE) do
         local techInfo = GameInfo.Technologies[techType]
 
-        if techInfo ~= nil then
+        if techInfo == nil then
+            Log("Technology not found: " .. techType)
+        elseif not playerTechs:HasTech(techInfo.Index) then
             playerTechs:SetTech(techInfo.Index, true)
             Log("Completed technology: " .. techType)
-        else
-            Log("Technology not found: " .. techType)
         end
     end
 end
@@ -78,11 +78,11 @@ local function CompleteCivics(player)
     for _, civicType in ipairs(CIVICS_TO_COMPLETE) do
         local civicInfo = GameInfo.Civics[civicType]
 
-        if civicInfo ~= nil then
+        if civicInfo == nil then
+            Log("Civic not found: " .. civicType)
+        elseif not playerCulture:HasCivic(civicInfo.Index) then
             playerCulture:SetCivic(civicInfo.Index, true)
             Log("Completed civic: " .. civicType)
-        else
-            Log("Civic not found: " .. civicType)
         end
     end
 end

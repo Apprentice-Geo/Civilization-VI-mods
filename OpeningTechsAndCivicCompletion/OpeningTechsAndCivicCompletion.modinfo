@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="1280d385-0dfa-4bf8-8850-6c331a7fa954" version="1.1">
+<Mod id="1280d385-0dfa-4bf8-8850-6c331a7fa954" version="1.2">
   <Properties>
     <Name>Opening Techs and Civic Completion（开局科技与市政完成）</Name>
     <Description>
-    远古时代开局时，人类主要玩家进入游戏后的首个回合开始时，立即完成以下开局科技与市政。
+    适用于从远古时代开始的对局。启用本 mod 后，每位人类玩家（限主要文明）在自己的首个回合开始时，补完下列尚未完成的科技和市政。
     科技：制陶术、畜牧业、采矿、航海术、占星术。
     市政：法典。
-    该效果只会触发一次，不会影响 AI 玩家。
-    非远古时代开局时，该效果不会触发。
+    每位符合条件的玩家只会获得一次补完效果。读取旧档前也可以启用本 mod。
 
-    In Ancient Era starts, when a human major player's first turn starts after entering the game, the following opening technologies and civic are immediately completed.
+    This mod applies to games that began in the Ancient Era. At the start of their first turn with the mod enabled, human players who control major civilizations complete any of the technologies and civics below that they haven't already researched.
     Technologies: Pottery, Animal Husbandry, Mining, Sailing, Astrology.
     Civic: Code of Laws.
-    This effect triggers only once and does not affect AI players.
-    This effect does not trigger in non-Ancient Era starts.
+    The effect triggers once per eligible player. You can also enable the mod before loading an existing save.
     </Description>
     <Created>1782979771</Created>
     <Teaser>
-    远古时代开局时，人类玩家进入游戏后的首个回合开始时立即完成开局科技与法典市政。
-    In Ancient Era starts, completes opening technologies and Code of Laws when a human player's first turn starts after entering the game.
+    从远古时代开局的人类玩家（限主要文明），在本 mod 启用后的首个回合开始时补完开局科技和法典。
+    In Ancient Era starts, human players who control major civilizations get any missing opening technologies and Code of Laws when their first turn with the mod enabled begins.
     </Teaser>
     <Authors>ApprenTice</Authors>
-    <AffectsSavedGames>1</AffectsSavedGames>
+    <AffectsSavedGames>0</AffectsSavedGames>
     <SupportsMultiplayer>1</SupportsMultiplayer>
     <SupportsHotSeat>1</SupportsHotSeat>
     <CompatibleVersions>2.0</CompatibleVersions>
