@@ -1,0 +1,22 @@
+{
+  "workshop_id": 3656066003,
+  "cover": "../covers/RazeAnyCity.png",
+  "visibility": "public",
+  "type": "Mod",
+  "tags": [
+    "Gameplay",
+    "Base Game",
+    "Rise and Fall",
+    "Gathering Storm"
+  ],
+  "english": {
+    "title": "Raze Any City",
+    "description": "Human and AI players can raze any city they capture, including original capitals."
+  },
+  "schinese": {
+    "title": "夷平任意城市",
+    "description": "人类玩家和 AI 都可以夷平任意攻占的城市，包括原始首都。"
+  },
+  "required_items": [],
+  "required_dlc": []
+}

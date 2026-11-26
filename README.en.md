@@ -112,13 +112,13 @@ Under the Rise and Fall and Gathering Storm rulesets, each city gains +2 Gold, +
 
 This effect applies only to human major players. AI players do not receive these effects.
 
-### Raze Original Capital
+### Raze Any City
 
-![Raze Original Capital cover](covers/RazeOriginalCapital.png)
+![Raze Any City cover](covers/RazeAnyCity.png)
 
-Folder: `RazeOriginalCapital`
+Folder: `RazeAnyCity`
 
-By modifying the global configuration, any city can be razed, affecting both human players and AI.
+Human and AI players can raze any city they capture, including original capitals.
 
 ### Sight Enhance
 
@@ -127,6 +127,14 @@ By modifying the global configuration, any city can be razed, affecting both hum
 Folder: `SightEnhance`
 
 This mod provides a global sight range bonus to human player units. All units controlled by human players will gain an additional 1 point of vision. It can stack with João III's Porta do Cerco. This effect does not affect AI players.
+
+### Stormproof Cities
+
+![Stormproof Cities cover](covers/StormproofCities.png)
+
+Folder: `StormproofCities`
+
+Under the Gathering Storm ruleset, every city owned by a human major civilization automatically gains Liang’s Reinforced Materials effect. Environmental effects cannot damage its improvements, buildings, or districts, even without an assigned governor.
 
 ### Better Rock Band Lens
 

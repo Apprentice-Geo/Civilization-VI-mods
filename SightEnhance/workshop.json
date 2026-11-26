@@ -1,0 +1,23 @@
+{
+  "workshop_id": 3679334483,
+  "cover": "../covers/SightEnhance.png",
+  "visibility": "public",
+  "type": "Mod",
+  "tags": [
+    "Gameplay",
+    "Base Game",
+    "Rise and Fall",
+    "Gathering Storm",
+    "Units"
+  ],
+  "english": {
+    "title": "Sight Enhance",
+    "description": "This mod provides a global sight range bonus to human player units.\nAll units controlled by human players will gain an additional 1 point of vision.\nStacking with João III's Porta do Cerco.\nThis effect does not affect AI players."
+  },
+  "schinese": {
+    "title": "人类单位视野增强",
+    "description": "本 Mod 为人类玩家单位提供全局视野范围加成。\n所有由人类玩家控制的单位将额外获得 1 点视野。\n可与若昂三世的关闸叠加。\n该效果不会影响 AI 玩家。"
+  },
+  "required_items": [],
+  "required_dlc": []
+}

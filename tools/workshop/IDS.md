@@ -18,8 +18,9 @@
 | `OpeningTechsAndCivicCompletion` | [3756080001](https://steamcommunity.com/sharedfiles/filedetails/?id=3756080001) | |
 | `PeoplesWar` | [3765144430](https://steamcommunity.com/sharedfiles/filedetails/?id=3765144430) | |
 | `PopulationYields` | [3777420523](https://steamcommunity.com/sharedfiles/filedetails/?id=3777420523) | |
-| `RazeOriginalCapital` | [3656066003](https://steamcommunity.com/sharedfiles/filedetails/?id=3656066003) | |
+| `RazeAnyCity` | [3656066003](https://steamcommunity.com/sharedfiles/filedetails/?id=3656066003) | |
 | `SightEnhance` | [3679334483](https://steamcommunity.com/sharedfiles/filedetails/?id=3679334483) | |
+| `StormproofCities` | [3846158654](https://steamcommunity.com/sharedfiles/filedetails/?id=3846158654) | 所需 DLC 为风云变幻 `947510` |
 
 ## 常见 DLC
 

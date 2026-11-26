@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mod id="ebe32804-8077-421c-a588-5b549de89995" version="1">
+  <Properties>
+    <Name>Raze Any City（夷平任意城市）</Name>
+    <Description>
+    人类玩家和 AI 都可以夷平任意攻占的城市，包括原始首都。
+    Human and AI players can raze any city they capture, including original capitals.
+    </Description>
+    <Created>1769623691</Created>
+    <Teaser>
+    允许夷平任意攻占的城市。
+    Allows razing any captured city.
+    </Teaser>
+    <Authors>ApprenTice</Authors>
+    <AffectsSavedGames>1</AffectsSavedGames>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <SupportsHotSeat>1</SupportsHotSeat>
+    <CompatibleVersions>2.0</CompatibleVersions>
+  </Properties>
+  <InGameActions>
+    <UpdateDatabase id="RazeAnyCity">
+      <File>RazeAnyCity.sql</File>
+    </UpdateDatabase>
+  </InGameActions>
+  <Files>
+    <File>RazeAnyCity.sql</File>
+  </Files>
+</Mod>

@@ -1,0 +1,24 @@
+{
+  "workshop_id": 3765144430,
+  "cover": "../covers/PeoplesWar.png",
+  "visibility": "public",
+  "type": "Mod",
+  "tags": [
+    "Gameplay",
+    "Gathering Storm",
+    "Game Balance",
+    "Units"
+  ],
+  "english": {
+    "title": "People's War",
+    "description": "Requires the Gathering Storm ruleset. Applies to human and AI major civilizations and city-states. Starting at 1 population, gain +1 normal and religious combat strength per 10 total population, capped at +100.\nEach city gains +1 ranged strike and +1 outer defense at 2 population and every 2 population thereafter, capped at +50 each at 100 population. Starting at 1 population, each city gains 1 counter-spy level per 5 population, capped at +20 at 96 population.\nConquered cities lose no population."
+  },
+  "schinese": {
+    "title": "人民战争",
+    "description": "仅适用于风云变幻规则集。效果适用于人类主要文明、AI主要文明和城邦。帝国总人口从1人口起每10人口获得+1普通与宗教战斗力，最高+100。\n单城每满2人口获得+1远程攻击和+1外防御，100人口时各封顶+50。反间谍从1人口起每5人口增加1级，96人口时封顶+20级。\n征服城市人口不会损失。"
+  },
+  "required_items": [],
+  "required_dlc": [
+    947510
+  ]
+}

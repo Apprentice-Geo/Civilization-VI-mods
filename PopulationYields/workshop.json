@@ -1,0 +1,22 @@
+{
+  "workshop_id": 3777420523,
+  "cover": "../covers/PopulationYields.png",
+  "visibility": "public",
+  "type": "Mod",
+  "tags": [
+    "Gameplay",
+    "Rise and Fall",
+    "Gathering Storm",
+    "Game Balance"
+  ],
+  "english": {
+    "title": "Population Yields",
+    "description": "Requires either the Rise and Fall or the Gathering Storm ruleset. Each city of a human major player gains +2 Gold, +0.5 Production, +1 Faith, +0.5 Science, and +0.5 Culture per population."
+  },
+  "schinese": {
+    "title": "人口产出",
+    "description": "适用于迭起兴衰或风云变幻规则集。人类主要玩家的每座城市每人口额外提供+2金币、+0.5生产力、+1信仰、+0.5科技和+0.5文化。"
+  },
+  "required_items": [],
+  "required_dlc": []
+}

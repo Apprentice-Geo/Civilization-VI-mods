@@ -1,0 +1,24 @@
+{
+  "workshop_id": 3756080001,
+  "cover": "../covers/OpeningTechsAndCivicCompletion.png",
+  "visibility": "public",
+  "type": "Mod",
+  "tags": [
+    "Gameplay",
+    "Base Game",
+    "Rise and Fall",
+    "Gathering Storm",
+    "Civics",
+    "Technologies"
+  ],
+  "english": {
+    "title": "Opening Techs and Civic Completion",
+    "description": "In Ancient Era starts, when a human major player's first turn starts after entering the game, the following opening technologies and civic are immediately completed.\nTechnologies: Pottery, Animal Husbandry, Mining, Sailing, Astrology.\nCivic: Code of Laws.\nThis effect triggers only once and does not affect AI players.\nThis effect does not trigger in non-Ancient Era starts."
+  },
+  "schinese": {
+    "title": "开局科技与市政完成",
+    "description": "远古时代开局时，人类主要玩家进入游戏后的首个回合开始时，立即完成以下开局科技与市政。\n科技：制陶术、畜牧业、采矿、航海术、占星术。\n市政：法典。\n该效果只会触发一次，不会影响 AI 玩家。\n非远古时代开局时，该效果不会触发。"
+  },
+  "required_items": [],
+  "required_dlc": []
+}
