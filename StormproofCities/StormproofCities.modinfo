@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="5b1fdc14-91e7-48b2-a078-ed3feefa909c" version="2">
+<Mod id="5b1fdc14-91e7-48b2-a078-ed3feefa909c" version="3">
   <Properties>
     <Name>Stormproof Cities（安如磐石）</Name>
     <Description>
@@ -18,6 +18,10 @@
     <SupportsMultiplayer>1</SupportsMultiplayer>
     <SupportsHotSeat>1</SupportsHotSeat>
   </Properties>
+
+  <Dependencies>
+    <Mod id="4873eb62-8ccc-4574-b784-dda455e74e68"/>
+  </Dependencies>
 
   <ActionCriteria>
     <Criteria id="StormproofCities_GatheringStorm">
